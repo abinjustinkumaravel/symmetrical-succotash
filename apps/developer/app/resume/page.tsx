@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 
 /* ── colour tokens ─────────────────────────────────────────────── */
@@ -39,19 +39,25 @@ function Section({ children, gap = 16 }: { children: React.ReactNode; gap?: numb
   return <div style={{ marginBottom: gap }}>{children}</div>;
 }
 
-/* ── main ──────────────────────────────────────────────────────── */
-export default function ResumePage() {
+/* ── auto-print handler (needs Suspense because of useSearchParams) ── */
+function AutoPrint() {
   const params = useSearchParams();
-
-  // auto-print when ?print=true
   useEffect(() => {
     if (params.get("print") === "true") {
       setTimeout(() => window.print(), 400);
     }
   }, [params]);
+  return null;
+}
 
+/* ── main ──────────────────────────────────────────────────────── */
+export default function ResumePage() {
   return (
     <>
+      <Suspense fallback={null}>
+        <AutoPrint />
+      </Suspense>
+
       {/* ── Print / Download button (hidden in print) ── */}
       <div className="no-print" style={{
         position: "fixed", top: 16, right: 16, zIndex: 50,

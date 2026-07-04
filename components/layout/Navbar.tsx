@@ -16,21 +16,34 @@ const links = [
 
 function useActiveSection() {
   const [active, setActive] = useState("");
+
   useEffect(() => {
-    const ids = links.map((l) => l.href.slice(1));
-    const observers: IntersectionObserver[] = [];
-    ids.forEach((id) => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const obs = new IntersectionObserver(
-        ([entry]) => { if (entry.isIntersecting) setActive(id); },
-        { rootMargin: "-40% 0px -55% 0px" }
-      );
-      obs.observe(el);
-      observers.push(obs);
-    });
-    return () => observers.forEach((o) => o.disconnect());
+    // All section IDs on the page in scroll order (including non-nav sections)
+    const ALL_IDS = [
+      "about", "identity", "expertise", "projects",
+      "experience", "beyond", "services", "contact",
+    ];
+
+    function update() {
+      const threshold = window.scrollY + window.innerHeight * 0.38;
+      let current = "";
+      for (const id of ALL_IDS) {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= threshold) current = id;
+      }
+      // Map non-nav sections to their nearest nav link
+      const MAP: Record<string, string> = {
+        identity: "about",
+        beyond:   "experience",
+      };
+      setActive(MAP[current] ?? current);
+    }
+
+    window.addEventListener("scroll", update, { passive: true });
+    update();
+    return () => window.removeEventListener("scroll", update);
   }, []);
+
   return active;
 }
 

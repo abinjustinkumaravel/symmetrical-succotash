@@ -62,8 +62,9 @@
   *, *::before, *::after { cursor: auto !important; }
 }
 
-/* Restore default cursor on pages without CustomCursor (e.g. /resume) */
-.resume-page, .resume-page * {
+/* Restore default cursor on pages without CustomCursor (e.g. /resume, /gate) */
+.resume-page, .resume-page *,
+.gate-page, .gate-page * {
   cursor: auto !important;
 }
 

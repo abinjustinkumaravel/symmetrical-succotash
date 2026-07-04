@@ -265,7 +265,7 @@ export default function Hero() {
               fontFamily: "var(--font-body)",
               fontSize: "16px",
               color: "#9A9690",
-              marginBottom: 0,
+              marginBottom: "1.5rem",
               lineHeight: 1.6,
               maxWidth: "360px",
             }}
@@ -285,7 +285,7 @@ export default function Hero() {
                 onClick={scrollToWork}
                 style={{
                   fontFamily: "var(--font-label)", fontSize: "9px", letterSpacing: "0.15em",
-                  padding: "13px 28px", borderRadius: "9999px",
+                  padding: "13px 28px", borderRadius: "9999px", marginBottom: "1.5rem",
                   background: "#C8A96E", color: "#08080A", fontWeight: 700, border: "none",
                   transition: "opacity 0.2s",
                 }}

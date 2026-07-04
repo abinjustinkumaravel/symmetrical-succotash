@@ -5,9 +5,7 @@ import About from "@/components/sections/About";
 import Identity from "@/components/sections/Identity";
 import Expertise from "@/components/sections/Expertise";
 import Projects from "@/components/sections/Projects";
-import Modeling from "@/components/sections/Modeling";
 import Experience from "@/components/sections/Experience";
-import Partnerships from "@/components/sections/Partnerships";
 import BeyondCode from "@/components/sections/BeyondCode";
 import Services from "@/components/sections/Services";
 import Contact from "@/components/sections/Contact";
@@ -26,7 +24,7 @@ export default function Home() {
         <Projects />
         {/* <Modeling /> */}
         <Experience />
-        <Partnerships />
+        {/* <Partnerships /> */}
         {/* <ContentCreator /> */}
         <BeyondCode />
         <Services />

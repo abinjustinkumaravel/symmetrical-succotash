@@ -6,11 +6,12 @@ import ThemeToggle from "@/components/ui/ThemeToggle";
 import MagneticButton from "@/components/ui/MagneticButton";
 
 const links = [
-  { label: "About",    href: "#about"    },
-  { label: "Work",     href: "#projects" },
-  { label: "Speaking", href: "#experience" },
-  { label: "Services", href: "#services"  },
-  { label: "Contact",  href: "#contact"   },
+  { label: "About",      href: "#about"      },
+  { label: "Skills",     href: "#expertise"  },
+  { label: "Projects",   href: "#projects"   },
+  { label: "Experience", href: "#experience" },
+  { label: "Education",  href: "#services"   },
+  { label: "Contact",    href: "#contact"    },
 ];
 
 function useActiveSection() {

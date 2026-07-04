@@ -3,35 +3,35 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
-import { Flame, ShoppingBag, Users, AlarmClock } from "lucide-react";
+import { Users, Briefcase, BookOpen, AlarmClock } from "lucide-react";
 import TiltCard from "@/components/ui/TiltCard";
 import GrainOverlay from "@/components/ui/GrainOverlay";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const CARDS = [
   {
-    icon: <Flame size={26} />,
-    title: "Kalaripayattu Practitioner",
-    subtitle: "Martial Artist",
-    desc: "India's oldest martial art. Building physical discipline, reflexes, and the mental clarity that makes 4:30 AM productive.",
-  },
-  {
-    icon: <ShoppingBag size={26} />,
-    title: "Fashion & Retail",
-    subtitle: "Clothing Business",
-    desc: "Running a clothing store with DTF printing. Real business: inventory, staff, margins, customers.",
-  },
-  {
     icon: <Users size={26} />,
-    title: "College Speaker",
-    subtitle: "Community Builder",
-    desc: "Talks on AI and entrepreneurship across Tamil Nadu. Giving back to builders who can't afford Silicon Valley.",
+    title: "Client Communication",
+    subtitle: "Business Development",
+    desc: "Managed live B2B/B2C sales pipelines at AccioJob. Strong objection-handling and stakeholder communication — translating technical capabilities into business value.",
+  },
+  {
+    icon: <Briefcase size={26} />,
+    title: "Agile Delivery",
+    subtitle: "Government Project",
+    desc: "Delivered across backend, AI integration, security, and cloud deployment in a single trainee role on a live Qatar NPC government project. Tracked work in Jira and ServiceNow.",
+  },
+  {
+    icon: <BookOpen size={26} />,
+    title: "Continuous Learner",
+    subtitle: "Academic Excellence",
+    desc: "MCA at SRM (8.6 CGPA) after BCA in Data Science (8.5 CGPA). Consistently upskilling — from ML frameworks to cloud infrastructure to security engineering.",
   },
   {
     icon: <AlarmClock size={26} />,
-    title: "Personal Operating System",
-    subtitle: "Disciplined System",
-    desc: "4:30 AM rise. 3L water. Gym before code. The routine is the foundation everything else is built on.",
+    title: "Structured & Disciplined",
+    subtitle: "Reliable Execution",
+    desc: "Consistent, structured approach to engineering. Clean code, clear documentation, and the focus to drive projects from architecture planning through to production deployment.",
   },
 ];
 
@@ -69,7 +69,7 @@ export default function BeyondCode() {
             style={{ fontFamily: "var(--font-label)", fontSize: "10px", letterSpacing: "0.18em", color: "var(--accent-warm)" }}
           >
             <span style={{ width: "24px", height: "1px", background: "var(--accent-warm)", display: "inline-block" }} />
-            {"// THE FULL PICTURE"}
+            {"// WORKING STYLE"}
           </p>
           <h2
             style={{
@@ -81,7 +81,7 @@ export default function BeyondCode() {
               marginBottom: "16px",
             }}
           >
-            More than an engineer.
+            A full-stack engineer.<br />A complete professional.
           </h2>
           <p
             style={{
@@ -92,9 +92,9 @@ export default function BeyondCode() {
               maxWidth: "620px",
             }}
           >
-            Outside the terminal: I practice Kalaripayattu, speak at colleges across Tamil Nadu,
-            run a clothing brand, and document the whole chaotic journey on YouTube — all from
-            Nagercoil, where nobody told me this was supposed to be hard.
+            Technical depth alone isn&apos;t enough. I bring client communication skills,
+            agile delivery experience, academic rigour, and the discipline to ship on time —
+            built across real government and enterprise environments.
           </p>
         </ScrollReveal>
 

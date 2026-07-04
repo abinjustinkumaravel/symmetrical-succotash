@@ -10,9 +10,9 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const STATS = [
   { value: 8,   suffix: ".6", label: "MCA CGPA"          },
-  { value: 15,  suffix: "+",  label: "AI Projects"        },
-  { value: 1,   suffix: "",   label: "Enterprise Product" },
-  { value: 3,   suffix: "+",  label: "Years Experience"   },
+  { value: 8,   suffix: ".5", label: "BCA CGPA"           },
+  { value: 1,   suffix: "",   label: "Gov. Deployment"    },
+  { value: 20,  suffix: "%",  label: "Auth Overhead Cut"  },
 ];
 
 export default function About() {
@@ -74,8 +74,8 @@ export default function About() {
                 letterSpacing: "-0.01em",
               }}
             >
-              Writes systems.<br />
-              <span style={{ color: "var(--accent-warm)" }}>Rewrites rules.</span><br />
+              Builds systems.<br />
+              <span style={{ color: "var(--accent-warm)" }}>Ships to production.</span><br />
             </h2>
 
             {/* Bio paragraphs */}
@@ -88,11 +88,10 @@ export default function About() {
                 color: "rgba(242,239,232,0.65)",
               }}
             >
-              I&apos;m Abin — AI Engineer &amp; Systems Architect, and the kind of person who sees a broken system
-              and immediately opens a code editor. I build at{" "}
-              <span style={{ color: "var(--accent-warm)" }}>Lure Techsolutions</span> —
-              production-grade AI: RAG pipelines, autonomous agents, and intelligent
-              automation that replaces busywork with actual intelligence.
+              I&apos;m Abin — AI/ML and full-stack engineer pursuing{" "}
+              <span style={{ color: "var(--accent-warm)" }}>MCA at SRM Institute (8.6 CGPA)</span>.
+              I have hands-on experience building LLM-powered systems, RAG pipelines, and
+              secure backend APIs in real government and enterprise environments.
             </p>
             <p
               className="mb-8"
@@ -103,12 +102,14 @@ export default function About() {
                 color: "rgba(242,239,232,0.65)",
               }}
             >
-              Outside the terminal: I practice{" "}
-              <span style={{ color: "var(--accent-warm)" }}>Kalaripayattu</span>, speak at
-              colleges across Tamil Nadu, run a clothing brand, and document the whole
-              chaotic journey on YouTube — all from{" "}
-              <span style={{ color: "var(--accent-warm)" }}>Nagercoil</span>, where nobody
-              told me this was supposed to be hard.
+              At{" "}
+              <span style={{ color: "var(--accent-warm)" }}>Infaworx</span>, I delivered
+              across a live{" "}
+              <span style={{ color: "var(--accent-warm)" }}>Qatar NPC Government</span>{" "}
+              Data Governance Portal — integrating LLMs, designing a hybrid RAG pipeline,
+              implementing Redis-based auth with JWT &amp; IP whitelisting, and deploying
+              the full stack on{" "}
+              <span style={{ color: "var(--accent-warm)" }}>GCP</span>.
             </p>
 
             {/* Pull quote */}
@@ -136,7 +137,7 @@ export default function About() {
                   lineHeight: 1.4,
                 }}
               >
-                Most people wait for permission. I shipped a company instead.
+                Most people build demos. I deploy to governments.
               </p>
             </div>
 
@@ -214,7 +215,7 @@ export default function About() {
                       AVAILABLE
                     </p>
                     <p style={{ fontFamily: "var(--font-body)", fontSize: "12px", color: "var(--text-secondary)" }}>
-                      Open to LLM Projects
+                      Open to Full-Time / Internship
                     </p>
                   </div>
                 </div>

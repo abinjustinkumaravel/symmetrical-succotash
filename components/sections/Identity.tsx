@@ -4,11 +4,11 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import {
   Cpu,
-  Building2,
-  Camera,
-  PlayCircle,
-  Mic,
-  Hammer,
+  Code2,
+  Shield,
+  Trophy,
+  Cloud,
+  Brain,
 } from "lucide-react";
 import TiltCard from "@/components/ui/TiltCard";
 
@@ -16,50 +16,50 @@ const IDENTITIES = [
   {
     num: "01",
     icon: <Cpu size={28} />,
-    title: "The Engineer",
-    role: "LLM Engineer",
-    desc: "Building production RAG systems, AI agents, and LLM pipelines. Enterprise-grade AI that actually ships.",
-    tag: "AI · TECH",
+    title: "LLM Engineer",
+    role: "AI/ML Systems",
+    desc: "Building production RAG systems, LLM pipelines, and vector search. Hybrid BM25 + dense retrieval with cross-encoder reranking deployed in a live government environment.",
+    tag: "AI · GENAI",
   },
   {
     num: "02",
-    icon: <Building2 size={28} />,
-    title: "The Engineer",
-    role: "AI System Engineer",
-    desc: "Building at Lure Techsolutions. Leading product architecture, team, and client delivery.",
-    tag: "STARTUP · LEADERSHIP",
+    icon: <Code2 size={28} />,
+    title: "Full-Stack Dev",
+    role: "Backend & Frontend",
+    desc: "FastAPI + Node.js backends with React/Next.js frontends. Built multi-layer auth pipelines, role-based access control, and production-grade REST APIs.",
+    tag: "BACKEND · FRONTEND",
   },
   {
     num: "03",
-    icon: <Camera size={28} />,
-    title: "The Face",
-    role: "Model & Visual Brand",
-    desc: "My face is my brand. Curating a visual identity that's confident, editorial, and authentically South Indian.",
-    tag: "MODELING · BRAND",
+    icon: <Shield size={28} />,
+    title: "Security Engineer",
+    role: "Secure API Design",
+    desc: "JWT auth, Redis session management, HTTP-only cookies, IP whitelisting, and multi-layer input validation — deployed on a live Qatar NPC Government portal.",
+    tag: "SECURITY · AUTH",
   },
   {
     num: "04",
-    icon: <PlayCircle size={28} />,
-    title: "The Teacher",
-    role: "Content Creator",
-    desc: "YouTube channel teaching LLM engineering to developers across India. Making AI accessible.",
-    tag: "YOUTUBE · EDUCATION",
+    icon: <Trophy size={28} />,
+    title: "Problem Solver",
+    role: "DSA · 300+ Solved",
+    desc: "300+ problems across LeetCode and HackerRank covering arrays, strings, dynamic programming, trees, and graphs. Strong algorithmic foundation.",
+    tag: "LEETCODE · HACKERRANK",
   },
   {
     num: "05",
-    icon: <Mic size={28} />,
-    title: "The Speaker",
-    role: "Tech Evangelist",
-    desc: "College talks on AI, LLMs, and entrepreneurship. Inspiring Tamil Nadu's next wave of builders.",
-    tag: "SPEAKER · COMMUNITY",
+    icon: <Cloud size={28} />,
+    title: "Cloud & DevOps",
+    role: "GCP · Docker · Nginx",
+    desc: "Deployed and managed production infrastructure on Google Cloud Platform. Containerized environments with Docker Compose, served through Nginx on Linux.",
+    tag: "GCP · DOCKER · DEVOPS",
   },
   {
     num: "06",
-    icon: <Hammer size={28} />,
-    title: "The Builder",
-    role: "Entrepreneur",
-    desc: "Clothing brand. Catering digital ops. Multiple revenue streams. Because builders build everything.",
-    tag: "BUSINESS · REVENUE",
+    icon: <Brain size={28} />,
+    title: "ML Practitioner",
+    role: "PyTorch · TensorFlow",
+    desc: "Applied ML with PyTorch, TensorFlow, scikit-learn, and Hugging Face Transformers. Computer vision with YOLOv8. Data pipelines with NumPy and Pandas.",
+    tag: "ML · DATA SCIENCE",
   },
 ];
 
@@ -116,7 +116,7 @@ export default function Identity() {
             }}
           >
             <span style={{ width: "24px", height: "1px", background: "var(--accent-warm)", display: "inline-block" }} />
-            {"// WHO I AM"}
+            {"// CORE CAPABILITIES"}
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -130,7 +130,7 @@ export default function Identity() {
               letterSpacing: "-0.01em",
             }}
           >
-            The many faces of Abin.
+            What I bring to the table.
           </motion.h2>
         </div>
 

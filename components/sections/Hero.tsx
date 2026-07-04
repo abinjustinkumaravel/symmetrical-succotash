@@ -14,28 +14,28 @@ import MagneticButton from "@/components/ui/MagneticButton";
 // ── Data ────────────────────────────────────────────────────────────────────
 
 const ROLES = [
-  "AI Engineer",
-  "Multimodal RAG Architect",
-  "Managing Director",
-  "Agentic Workflow Builder",
-  "SLM Fine-Tuner",
-  "Entrepreneur",
+  "AI/ML Engineer",
+  "Full-Stack Developer",
+  "LLM Systems Builder",
+  "RAG Pipeline Architect",
+  "Backend API Engineer",
+  "Cloud & DevOps Engineer",
 ];
 
 const TECH_CHIPS = [
-  { label: "LangGraph",        x: "-22%", y: "8%"  },
-  { label: "Neo4j",            x: "106%", y: "18%" },
-  { label: "ColPali",          x: "-24%", y: "52%" },
-  { label: "FastAPI",          x: "104%", y: "62%" },
-  { label: "Unsloth",          x: "18%",  y: "-9%" },
-  { label: "QLoRA · DPO",      x: "52%",  y: "108%"},
+  { label: "FastAPI",      x: "-22%", y: "8%"  },
+  { label: "ChromaDB",     x: "106%", y: "18%" },
+  { label: "PyTorch",      x: "-24%", y: "52%" },
+  { label: "Docker · GCP", x: "104%", y: "62%" },
+  { label: "Qwen2.5",      x: "18%",  y: "-9%" },
+  { label: "BAAI/bge-m3",  x: "52%",  y: "108%"},
 ];
 
 const STATS = [
-  ["3+",    "Companies Built"  ],
-  ["15+",   "Industry Projects"],
-  ["5+",    "MNC Partners"     ],
-  ["1000+", "Students Reached" ],
+  ["300+", "DSA Problems Solved"],
+  ["8.6",  "MCA CGPA"          ],
+  ["1",    "Gov. Deployment"   ],
+  ["8.5",  "BCA CGPA"          ],
 ];
 
 // Deterministic so SSR & hydration match
@@ -196,7 +196,7 @@ export default function Hero() {
           >
             <div style={{ height: "1px", width: "28px", background: "#C8A96E", flexShrink: 0 }} />
             <span style={{ fontFamily: "var(--font-label)", fontSize: "9px", letterSpacing: "0.2em", color: "#C8A96E" }}>
-              PORTFOLIO · 2025
+              OPEN TO OPPORTUNITIES · 2025
             </span>
             <motion.span
               animate={{ opacity: [1, 0, 1] }}
@@ -298,7 +298,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Stats */}
-          {/* <motion.div
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.4 }}
@@ -314,7 +314,7 @@ export default function Hero() {
                 </div>
               </div>
             ))}
-          </motion.div> */}
+          </motion.div>
         </div>
 
         {/* RIGHT — 3-D Photo Card */}

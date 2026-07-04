@@ -33,13 +33,12 @@ interface FormValues {
 }
 
 const INTENT_OPTIONS = [
-  { value: "llm", label: "LLM Integration Project" },
-  { value: "rag", label: "RAG System Build" },
-  { value: "agent", label: "AI Agent System" },
-  { value: "talk", label: "College Talk / Speaking" },
-  { value: "modeling", label: "Modeling Collaboration" },
-  { value: "youtube", label: "YouTube Collaboration" },
-  { value: "general", label: "General Inquiry" },
+  { value: "hiring",    label: "Full-Time Role / Internship" },
+  { value: "llm",       label: "LLM Integration Project" },
+  { value: "rag",       label: "RAG System Build" },
+  { value: "freelance", label: "Freelance / Contract Work" },
+  { value: "collab",    label: "Technical Collaboration" },
+  { value: "general",   label: "General Inquiry" },
 ];
 
 const BUDGET_OPTIONS = [
@@ -137,14 +136,14 @@ export default function Contact() {
                 letterSpacing: "-0.01em",
               }}
             >
-              Let&apos;s build something extraordinary.
+              Let&apos;s work together.
             </h2>
 
             <p
               className="mb-2"
               style={{ fontFamily: "var(--font-body)", fontSize: "15px", color: "rgba(242,239,232,0.6)", lineHeight: 1.7 }}
             >
-              Whether you need an AI system, a collaborator, or a speaker — let&apos;s talk.
+              Whether you&apos;re hiring, building an AI system, or want to collaborate — let&apos;s talk.
             </p>
             <p
               className="mb-8"
@@ -158,7 +157,7 @@ export default function Contact() {
               <div className="flex items-center gap-3">
                 <MapPin size={14} style={{ color: "var(--accent-warm)", flexShrink: 0 }} />
                 <span style={{ fontFamily: "var(--font-body)", fontSize: "14px", color: "rgba(242,239,232,0.65)" }}>
-                  Nagercoil, Tamil Nadu 🇮🇳 · Available Globally
+                  Thiruvananthapuram, Kerala 🇮🇳 · Open to Relocate
                 </span>
               </div>
 
@@ -191,7 +190,7 @@ export default function Contact() {
                   }}
                   className="p-2"
                 >
-                  Open to LLM Projects &amp; Collaborations
+                  Open to Full-Time Roles &amp; Internships
                 </span>
               </div>
             </div>

@@ -265,7 +265,7 @@ export default function Hero() {
               fontFamily: "var(--font-body)",
               fontSize: "16px",
               color: "#9A9690",
-              marginBottom: "1.5rem",
+              marginBottom: 0,
               lineHeight: 1.6,
               maxWidth: "360px",
             }}

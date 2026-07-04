@@ -31,13 +31,15 @@ function useActiveSection() {
 
   useEffect(() => {
     function update() {
-      // 40% down the viewport — whichever section's top is just above this wins
-      const trigger = window.innerHeight * 0.4;
+      // A section becomes active when its top scrolls past the navbar (80px).
+      // Small offset prevents the next section from firing prematurely.
+      const trigger = window.scrollY + 80;
       let current = "";
       for (const id of ALL_IDS) {
         const el = document.getElementById(id);
         if (!el) continue;
-        if (el.getBoundingClientRect().top <= trigger) current = id;
+        const top = el.getBoundingClientRect().top + window.scrollY;
+        if (top <= trigger) current = id;
       }
       setActive(SECTION_MAP[current] ?? current);
     }

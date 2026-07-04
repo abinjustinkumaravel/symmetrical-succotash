@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ["lucide-react", "framer-motion"],
   },
   turbopack: {
-    root: path.resolve(__dirname),
+    root: path.resolve(__dirname, "../.."), // monorepo root — where node_modules lives
   },
 };
 

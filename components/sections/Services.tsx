@@ -217,20 +217,23 @@ export default function Services() {
         {/* ── DSA header ── */}
         <ScrollReveal className="mb-10">
           <p
-            className="mb-4 flex items-center gap-2"
+            className="mb-6 flex items-center gap-2"
             style={{ fontFamily: "var(--font-label)", fontSize: "10px", letterSpacing: "0.18em", color: "var(--accent-warm)" }}
           >
             <span style={{ width: "24px", height: "1px", background: "var(--accent-warm)", display: "inline-block" }} />
             {"// DSA & PROBLEM SOLVING"}
           </p>
-          <div className="flex items-baseline gap-4">
+
+          {/* Big stat + label stacked */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
             <span
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "clamp(52px, 8vw, 90px)",
+                fontSize: "clamp(64px, 9vw, 110px)",
                 fontWeight: 300,
                 color: "var(--text-primary)",
-                lineHeight: 1,
+                lineHeight: 0.9,
+                letterSpacing: "-0.03em",
               }}
             >
               300+
@@ -238,8 +241,9 @@ export default function Services() {
             <span
               style={{
                 fontFamily: "var(--font-body)",
-                fontSize: "clamp(14px, 1.8vw, 18px)",
+                fontSize: "clamp(13px, 1.4vw, 16px)",
                 color: "var(--text-secondary)",
+                letterSpacing: "0.01em",
               }}
             >
               problems solved across LeetCode &amp; HackerRank
@@ -248,7 +252,7 @@ export default function Services() {
         </ScrollReveal>
 
         {/* ── DSA platform cards ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-14 items-start">
           {DSA_STATS.map((dsa, i) => (
             <motion.div
               key={dsa.platform}

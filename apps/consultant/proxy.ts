@@ -4,7 +4,7 @@ const COOKIE_NAME = "abin_access";
 const COOKIE_VALUE = "granted";
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 30; // 30 days
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   // Skip gate in local development
   if (process.env.NODE_ENV === "development") return NextResponse.next();
 

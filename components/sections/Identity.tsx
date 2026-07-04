@@ -117,7 +117,7 @@ export default function Identity() {
             }}
           >
             <span style={{ width: "24px", height: "1px", background: "var(--accent-warm)", display: "inline-block" }} />
-            {"// CORE CAPABILITIES"}
+            {"// SKILLS"}
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -131,7 +131,7 @@ export default function Identity() {
               letterSpacing: "-0.01em",
             }}
           >
-            What I bring to the table.
+            Skills.
           </motion.h2>
         </div>
 

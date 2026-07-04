@@ -70,7 +70,7 @@ export default function Services() {
             style={{ fontFamily: "var(--font-label)", fontSize: "10px", letterSpacing: "0.18em", color: "var(--accent-warm)" }}
           >
             <span style={{ width: "24px", height: "1px", background: "var(--accent-warm)", display: "inline-block" }} />
-            {"// EDUCATION & PROBLEM SOLVING"}
+            {"// EDUCATION"}
           </p>
           <h2
             style={{
@@ -81,8 +81,8 @@ export default function Services() {
               letterSpacing: "-0.02em",
             }}
           >
-            Academically sharp.<br />
-            <span style={{ color: "var(--accent-warm)" }}>Algorithmically proven.</span>
+            Education &amp;<br />
+            <span style={{ color: "var(--accent-warm)" }}>Problem Solving.</span>
           </h2>
         </ScrollReveal>
 

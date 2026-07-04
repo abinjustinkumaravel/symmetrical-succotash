@@ -297,9 +297,6 @@ export default function Hero() {
             </MagneticButton>
           </motion.div>
 
-          {/* Divider */}
-          <div style={{ width: "100%", maxWidth: "320px", height: "1px", background: "rgba(200,169,110,0.18)", marginBottom: "20px" }} />
-
           {/* Stats */}
           <motion.div
             initial={{ opacity: 0 }}

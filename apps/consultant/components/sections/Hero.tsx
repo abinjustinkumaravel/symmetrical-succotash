@@ -34,7 +34,7 @@ const TECH_CHIPS = [
 const STATS = [
   ["300+", "DSA Problems Solved"],
   ["8.6",  "MCA CGPA"          ],
-  ["1",    "Live Deployment"   ],
+  ["3+",   "Years Building"    ],
   ["8.5",  "BCA CGPA"          ],
 ];
 
@@ -278,7 +278,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.1, duration: 0.5 }}
-            className="flex flex-wrap gap-3 mb-6"
+            className="flex flex-wrap gap-3 mb-5"
           >
             <MagneticButton>
               <button

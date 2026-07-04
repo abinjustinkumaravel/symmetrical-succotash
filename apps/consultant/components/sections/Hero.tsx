@@ -302,16 +302,21 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.4 }}
-            className="flex flex-wrap gap-8"
+            style={{ display: "flex", gap: "32px", alignItems: "flex-start" }}
           >
-            {STATS.map(([num, label]) => (
-              <div key={label}>
-                <div style={{ fontFamily: "var(--font-display)", fontSize: "28px", fontWeight: 300, color: "#C8A96E", lineHeight: 1 }}>
-                  {num}
+            {STATS.map(([num, label], i) => (
+              <div key={label} style={{ display: "flex", alignItems: "flex-start", gap: "32px" }}>
+                <div>
+                  <div style={{ fontFamily: "var(--font-display)", fontSize: "28px", fontWeight: 300, color: "#C8A96E", lineHeight: 1 }}>
+                    {num}
+                  </div>
+                  <div style={{ fontFamily: "var(--font-label)", fontSize: "7.5px", letterSpacing: "0.15em", color: "#9A9690", marginTop: "5px", whiteSpace: "nowrap" }}>
+                    {label}
+                  </div>
                 </div>
-                <div style={{ fontFamily: "var(--font-label)", fontSize: "7.5px", letterSpacing: "0.15em", color: "#9A9690", marginTop: "5px" }}>
-                  {label}
-                </div>
+                {i < STATS.length - 1 && (
+                  <div style={{ width: "1px", height: "32px", background: "rgba(200,169,110,0.18)", alignSelf: "center", flexShrink: 0 }} />
+                )}
               </div>
             ))}
           </motion.div>

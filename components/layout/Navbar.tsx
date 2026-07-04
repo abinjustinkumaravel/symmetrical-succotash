@@ -14,29 +14,32 @@ const links = [
   { label: "Contact",    href: "#contact"    },
 ];
 
+// Non-nav sections mapped to their nearest nav link
+const SECTION_MAP: Record<string, string> = {
+  identity: "about",
+  beyond:   "experience",
+};
+
+// All section IDs on the page in top-to-bottom order
+const ALL_IDS = [
+  "about", "identity", "expertise", "projects",
+  "experience", "beyond", "services", "contact",
+];
+
 function useActiveSection() {
   const [active, setActive] = useState("");
 
   useEffect(() => {
-    // All section IDs on the page in scroll order (including non-nav sections)
-    const ALL_IDS = [
-      "about", "identity", "expertise", "projects",
-      "experience", "beyond", "services", "contact",
-    ];
-
     function update() {
-      const threshold = window.scrollY + window.innerHeight * 0.38;
+      // 40% down the viewport — whichever section's top is just above this wins
+      const trigger = window.innerHeight * 0.4;
       let current = "";
       for (const id of ALL_IDS) {
         const el = document.getElementById(id);
-        if (el && el.offsetTop <= threshold) current = id;
+        if (!el) continue;
+        if (el.getBoundingClientRect().top <= trigger) current = id;
       }
-      // Map non-nav sections to their nearest nav link
-      const MAP: Record<string, string> = {
-        identity: "about",
-        beyond:   "experience",
-      };
-      setActive(MAP[current] ?? current);
+      setActive(SECTION_MAP[current] ?? current);
     }
 
     window.addEventListener("scroll", update, { passive: true });

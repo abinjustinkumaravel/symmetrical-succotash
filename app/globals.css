@@ -1,26 +1,320 @@
 @import "tailwindcss";
 
+/* ── Dark-mode variant ── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Tailwind font theme ── */
+@theme {
+  --font-display: var(--font-cormorant), Georgia, serif;
+  --font-body:    var(--font-outfit), system-ui, sans-serif;
+  --font-label:   var(--font-syncopate), system-ui, sans-serif;
+  --font-mono:    var(--font-jetbrains), 'Courier New', monospace;
+}
+
+/* ══════════════════════════════════════════════════════
+   DESIGN TOKENS — Light Mode: "Ivory Editorial"
+══════════════════════════════════════════════════════ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-primary:     #F7F5F0;
+  --bg-secondary:   #EFEDE6;
+  --bg-card:        #FFFFFF;
+  --bg-dark-panel:  #0F0F0F;
+  --text-primary:   #0A0908;
+  --text-secondary: #4A4640;
+  --text-muted:     #9A9590;
+  --accent:         #1A1A1A;
+  --accent-warm:    #C8A96E;
+  --accent-red:     #C13B2A;
+  --border:         #DDD9D0;
+  --border-strong:  #B8B3A8;
+  --success:        #2D6A4F;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ══════════════════════════════════════════════════════
+   DESIGN TOKENS — Dark Mode: "Obsidian Luxe"
+══════════════════════════════════════════════════════ */
+.dark {
+  --bg-primary:     #08080A;
+  --bg-secondary:   #0F0F14;
+  --bg-card:        #141418;
+  --bg-dark-panel:  #1C1C22;
+  --text-primary:   #F2EFE8;
+  --text-secondary: #9A9690;
+  --text-muted:     #4A4845;
+  --accent:         #E8E4DC;
+  --accent-warm:    #C8A96E;
+  --accent-red:     #E04535;
+  --border:         #1E1E24;
+  --border-strong:  #2A2A32;
+  --success:        #4ADE80;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ══════════════════════════════════════════════════════
+   BASE RESET
+══════════════════════════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  cursor: none !important;
+}
+
+@media (pointer: coarse) {
+  *, *::before, *::after { cursor: auto !important; }
+}
+
+/* Restore default cursor on pages without CustomCursor (e.g. /resume) */
+.resume-page, .resume-page * {
+  cursor: auto !important;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.75;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ══════════════════════════════════════════════════════
+   TYPOGRAPHY UTILITIES
+══════════════════════════════════════════════════════ */
+.font-display { font-family: var(--font-display); }
+.font-body    { font-family: var(--font-body); }
+.font-label   { font-family: var(--font-label); letter-spacing: 0.15em; text-transform: uppercase; }
+.font-mono    { font-family: var(--font-mono); }
+
+.text-display {
+  font-size: clamp(72px, 10vw, 140px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  font-family: var(--font-display);
+}
+
+.text-h1 {
+  font-size: clamp(42px, 6vw, 80px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-family: var(--font-display);
+}
+
+.text-h2 {
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+}
+
+.text-label {
+  font-size: 11px;
+  font-family: var(--font-label);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ══════════════════════════════════════════════════════
+   SCROLLBAR
+══════════════════════════════════════════════════════ */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--accent-warm); border-radius: 2px; }
+
+/* ══════════════════════════════════════════════════════
+   TEXT SELECTION
+══════════════════════════════════════════════════════ */
+::selection { background-color: var(--accent-warm); color: #0A0908; }
+
+/* ══════════════════════════════════════════════════════
+   MARQUEE
+══════════════════════════════════════════════════════ */
+@keyframes marquee-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee-scroll 28s linear infinite;
+  will-change: transform;
+}
+.animate-marquee:hover { animation-play-state: paused; }
+
+/* ══════════════════════════════════════════════════════
+   GRADIENT BORDER (footer)
+══════════════════════════════════════════════════════ */
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.gradient-border-animated {
+  background: linear-gradient(90deg, var(--border), var(--accent-warm), var(--border), var(--accent-warm), var(--border));
+  background-size: 300% 100%;
+  animation: gradient-shift 4s ease infinite;
+  height: 1px;
+  width: 100%;
+}
+
+/* ══════════════════════════════════════════════════════
+   CURSOR BLINK
+══════════════════════════════════════════════════════ */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ══════════════════════════════════════════════════════
+   PULSE DOT (availability)
+══════════════════════════════════════════════════════ */
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.8); opacity: 0.3; }
+}
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+  animation: pulse-dot 2s ease-in-out infinite;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════════════════
+   SECTION NUMBER (decorative, behind content)
+══════════════════════════════════════════════════════ */
+.section-number {
+  font-family: var(--font-display);
+  font-size: clamp(120px, 18vw, 220px);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--text-primary);
+  opacity: 0.04;
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.04em;
+}
+
+/* ══════════════════════════════════════════════════════
+   FORM FLOAT LABEL
+══════════════════════════════════════════════════════ */
+.form-float-label { position: relative; }
+.form-float-label input,
+.form-float-label textarea,
+.form-float-label select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border-strong);
+  padding: 22px 0 8px 0;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.3s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.form-float-label label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-family: var(--font-label);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+.form-float-label:has(input:focus) label,
+.form-float-label:has(input:not(:placeholder-shown)) label,
+.form-float-label:has(textarea:focus) label,
+.form-float-label:has(textarea:not(:placeholder-shown)) label,
+.form-float-label:has(select:focus) label {
+  top: 6px;
+  transform: none;
+  font-size: 9px;
+  color: var(--accent-warm);
+}
+.form-float-label input:focus,
+.form-float-label textarea:focus,
+.form-float-label select:focus { border-bottom-color: var(--accent-warm); }
+.form-float-label input.error,
+.form-float-label textarea.error { border-bottom-color: var(--accent-red); }
+.form-float-label textarea { resize: none; }
+.form-float-label select option { background: var(--bg-card); color: var(--text-primary); }
+
+/* Shake animation for form errors */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-6px); }
+  40%       { transform: translateX(6px); }
+  60%       { transform: translateX(-4px); }
+  80%       { transform: translateX(4px); }
+}
+.shake { animation: shake 0.4s ease; }
+
+/* ══════════════════════════════════════════════════════
+   GRAIN OVERLAY
+══════════════════════════════════════════════════════ */
+.grain-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+}
+.dark .grain-overlay { opacity: 0.065; }
+
+/* ══════════════════════════════════════════════════════
+   PHOTO PLACEHOLDER
+══════════════════════════════════════════════════════ */
+.photo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--font-label);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  text-align: center;
+  padding: 16px;
+}
+
+/* ══════════════════════════════════════════════════════
+   HORIZONTAL SCROLL CONTAINER
+══════════════════════════════════════════════════════ */
+.scroll-container {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-warm) transparent;
+  overflow-x: auto;
+}
+.scroll-container::-webkit-scrollbar { height: 2px; }
+.scroll-container::-webkit-scrollbar-thumb { background: var(--accent-warm); }
+
+/* ══════════════════════════════════════════════════════
+   REDUCED MOTION
+══════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+  .animate-marquee { animation: none; }
 }

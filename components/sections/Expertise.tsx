@@ -65,7 +65,7 @@ export default function Expertise() {
         padding: "clamp(5rem, 8vw, 8rem) 0",
       }}
     >
-      <div className="mx-auto px-8">
+      <div className="mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
 
           {/* Left heading */}

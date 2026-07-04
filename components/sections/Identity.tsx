@@ -98,7 +98,7 @@ export default function Identity() {
       </div>
 
       <div
-        className="relative mx-auto px-8"
+        className="relative mx-auto px-6 md:px-10"
         // style={{ maxWidth: "1400px" }}
       >
         {/* Header */}

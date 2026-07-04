@@ -55,7 +55,7 @@ export default function Experience() {
         overflow: "hidden",
       }}
     >
-      <div className="mx-auto px-4 sm:px-8 lg:px-20">
+      <div className="mx-auto px-6 md:px-10">
         {/* Header */}
         <ScrollReveal className="mb-16">
           <p

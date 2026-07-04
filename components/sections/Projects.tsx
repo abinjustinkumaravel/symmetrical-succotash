@@ -82,9 +82,9 @@ const PROJECTS: Project[] = [
     id: "p8",
     gradient: "linear-gradient(135deg, #141008 0%, #2D2010 50%, #3D2E16 100%)",
     badge: "STATIC SITE · NETLIFY",
-    title: "Pommica Catering",
+    title: "Pommi Catering",
     tags: ["HTML", "CSS", "JavaScript", "Netlify"],
-    desc: "Static business website for Pommica Catering built with vanilla HTML, CSS, and JavaScript. Clean presentation of services, menu, and contact details. Deployed and hosted on Netlify with fast global CDN delivery.",
+    desc: "Static business website for Pommi Catering built with vanilla HTML, CSS, and JavaScript. Clean presentation of services, menu, and contact details. Deployed and hosted on Netlify with fast global CDN delivery.",
     impact: "NETLIFY · STATIC · CDN HOSTED",
   },
 ];

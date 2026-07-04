@@ -34,7 +34,7 @@ const TECH_CHIPS = [
 const STATS = [
   ["300+", "DSA Problems Solved"],
   ["8.6",  "MCA CGPA"          ],
-  ["1",    "Gov. Deployment"   ],
+  ["1",    "Live Deployment"   ],
   ["8.5",  "BCA CGPA"          ],
 ];
 

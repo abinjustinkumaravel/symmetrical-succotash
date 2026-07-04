@@ -91,7 +91,7 @@ export default function About() {
               I&apos;m Abin — AI/ML and full-stack engineer pursuing{" "}
               <span style={{ color: "var(--accent-warm)" }}>MCA at SRM Institute (8.6 CGPA)</span>.
               I have hands-on experience building LLM-powered systems, RAG pipelines, and
-              secure backend APIs in real government and enterprise environments.
+              secure backend APIs in real enterprise and high-stakes production environments.
             </p>
             <p
               className="mb-8"
@@ -105,7 +105,7 @@ export default function About() {
               At{" "}
               <span style={{ color: "var(--accent-warm)" }}>Infaworx</span>, I delivered
               across a live{" "}
-              <span style={{ color: "var(--accent-warm)" }}>Qatar NPC Government</span>{" "}
+              <span style={{ color: "var(--accent-warm)" }}>enterprise clients in Qatar</span>{" "}
               Data Governance Portal — integrating LLMs, designing a hybrid RAG pipeline,
               implementing Redis-based auth with JWT &amp; IP whitelisting, and deploying
               the full stack on{" "}
@@ -137,7 +137,7 @@ export default function About() {
                   lineHeight: 1.4,
                 }}
               >
-                Most people build demos. I deploy to governments.
+                Most people build demos. I deploy to production.
               </p>
             </div>
 

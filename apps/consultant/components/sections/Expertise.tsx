@@ -23,7 +23,7 @@ const CARDS: ExpertiseCard[] = [
   {
     icon: <Zap size={22} />,
     title: "LLM Integration",
-    desc: "End-to-end LLM API integration with prompt engineering and response handling — deployed in live government and enterprise environments.",
+    desc: "End-to-end LLM API integration with prompt engineering and response handling — deployed in live enterprise and production environments.",
     tags: ["Qwen2.5", "HuggingFace", "llama-cpp-python", "Prompt Eng."],
   },
   {
@@ -47,7 +47,7 @@ const CARDS: ExpertiseCard[] = [
   {
     icon: <Mic2 size={22} />,
     title: "Frontend Engineering",
-    desc: "React and Next.js frontend development with multi-layer validation. Built full-stack interfaces for government data pipeline workflows and enterprise portals.",
+    desc: "React and Next.js frontend development with multi-layer validation. Built full-stack interfaces for enterprise data pipeline workflows and client portals.",
     tags: ["React", "Next.js", "TypeScript", "Validation"],
   },
 ];

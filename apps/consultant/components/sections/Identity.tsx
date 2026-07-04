@@ -18,7 +18,7 @@ const IDENTITIES = [
     icon: <Cpu size={28} />,
     title: "LLM Engineer",
     role: "AI/ML Systems",
-    desc: "Building production RAG systems, LLM pipelines, and vector search. Hybrid BM25 + dense retrieval with cross-encoder reranking deployed in a live government environment.",
+    desc: "Building production RAG systems, LLM pipelines, and vector search. Hybrid BM25 + dense retrieval with cross-encoder reranking deployed in a live enterprise environment.",
     tag: "AI · GENAI",
   },
   {
@@ -34,7 +34,7 @@ const IDENTITIES = [
     icon: <Shield size={28} />,
     title: "Security Engineer",
     role: "Secure API Design",
-    desc: "JWT auth, Redis session management, HTTP-only cookies, IP whitelisting, and multi-layer input validation — deployed on a live Qatar NPC Government portal.",
+    desc: "JWT auth, Redis session management, HTTP-only cookies, IP whitelisting, and multi-layer input validation — deployed on a live enterprise client portal.",
     tag: "SECURITY · AUTH",
   },
   {

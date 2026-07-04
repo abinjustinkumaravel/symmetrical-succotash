@@ -1,45 +1,21 @@
 import DevSidebar from "@/components/sections/DevSidebar";
-import DevSummary from "@/components/sections/DevSummary";
-import DevExperience from "@/components/sections/DevExperience";
-import DevSkills from "@/components/sections/DevSkills";
-import DevProjects from "@/components/sections/DevProjects";
-import DevEducation from "@/components/sections/DevEducation";
-import DevDSA from "@/components/sections/DevDSA";
-import DevContact from "@/components/sections/DevContact";
+import DevMain from "@/components/sections/DevMain";
 
 export default function Home() {
   return (
     <>
-      {/* Desktop: sidebar + main grid */}
-      <div className="dev-layout">
+      <div className="resume-layout">
         <DevSidebar />
-        <main style={{ minWidth: 0 }}>
-          <DevSummary />
-          <DevExperience />
-          <DevSkills />
-          <DevProjects />
-          <DevEducation />
-          <DevDSA />
-          <DevContact />
-        </main>
+        <DevMain />
       </div>
-
       <style>{`
-        .dev-layout {
+        .resume-layout {
           display: grid;
-          grid-template-columns: 280px 1fr;
+          grid-template-columns: 290px 1fr;
           min-height: 100vh;
         }
-        @media (max-width: 768px) {
-          .dev-layout {
-            grid-template-columns: 1fr;
-          }
-          .dev-layout > aside {
-            position: static !important;
-            height: auto !important;
-            border-right: none !important;
-            border-bottom: 1px solid var(--border) !important;
-          }
+        @media (max-width: 860px) {
+          .resume-layout { grid-template-columns: 1fr; }
         }
       `}</style>
     </>

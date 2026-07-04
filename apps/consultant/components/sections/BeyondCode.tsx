@@ -15,8 +15,8 @@ const TRAITS = [
   {
     num: "02",
     title: "Agile Delivery",
-    tag: "GOVERNMENT PROJECT",
-    desc: "Delivered across backend, AI integration, security, and cloud deployment in a single trainee role on a live Qatar NPC government project. Tracked work in Jira and ServiceNow.",
+    tag: "ENTERPRISE PROJECT",
+    desc: "Delivered across backend, AI integration, security, and cloud deployment in a single trainee role on a live enterprise data management project. Tracked work in Jira and ServiceNow.",
   },
   {
     num: "03",
@@ -158,7 +158,7 @@ export default function BeyondCode() {
           >
             Technical depth alone isn&apos;t enough. I bring communication,
             agile delivery, academic rigour, and the discipline to ship —
-            built across government and enterprise environments.
+            built across high-stakes enterprise environments.
           </p>
         </motion.div>
 

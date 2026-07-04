@@ -27,11 +27,11 @@ const PROJECTS: Project[] = [
   {
     id: "p2",
     gradient: "linear-gradient(135deg, #1A0808 0%, #3D0E0E 45%, #6B1515 100%)",
-    badge: "GOVT · ON-PREMISES · LLM",
-    title: "Qatar Gov — LLM Middleware",
+    badge: "ENTERPRISE · ON-PREMISES · LLM",
+    title: "SDB — LLM Classification Middleware",
     tags: ["PHI3 LLM", "Prompt Engineering", "Python", "On-Premises", "Multi-VM"],
-    desc: "LLM-based classification middleware built for the Qatar NPC Government's data migration pipeline. PHI3 LLM with custom multi-level prompt engineering for automated confidentiality detection across migrating datasets. Deployed on-premises across a multi-level virtual machine infrastructure — zero cloud dependency.",
-    impact: "ON-PREMISES · PHI3 · GOVT CONFIDENTIALITY DETECTION",
+    desc: "LLM-based classification middleware built for an enterprise data migration pipeline (SDB — via Infaworx Data Management Pvt Ltd). PHI3 LLM with custom multi-level prompt engineering for automated confidentiality detection across migrating datasets. Deployed on-premises across a multi-level virtual machine infrastructure — zero cloud dependency.",
+    impact: "ON-PREMISES · PHI3 · CONFIDENTIALITY CLASSIFICATION",
   },
   {
     id: "p3",

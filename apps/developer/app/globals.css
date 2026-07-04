@@ -1,57 +1,41 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: var(--font-cormorant), Georgia, serif;
-  --font-body:    var(--font-outfit), system-ui, sans-serif;
-  --font-label:   var(--font-syncopate), system-ui, sans-serif;
+  --font-heading: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-body:    var(--font-inter), system-ui, sans-serif;
   --font-mono:    var(--font-jetbrains), 'Courier New', monospace;
 }
 
-/* ── Design tokens (always dark — developer aesthetic) ── */
+/* ── Dark mode (default) ── */
 :root {
-  --bg-base:       #08080A;
-  --bg-sidebar:    #0F0F14;
-  --bg-card:       #141418;
-  --bg-hover:      #1C1C22;
-  --text-primary:  #F2EFE8;
-  --text-secondary:#9A9690;
-  --text-muted:    #4A4845;
-  --accent:        #C8A96E;
-  --accent-dim:    rgba(200,169,110,0.15);
-  --border:        #1E1E24;
-  --border-accent: rgba(200,169,110,0.3);
+  --bg:       #0A0A0A;
+  --bg-card:  #111111;
+  --bg-hover: #1A1A1A;
+  --border:   #222222;
+  --border-2: #2E2E2E;
+  --text:     #FFFFFF;
+  --text-2:   #A0A0A0;
+  --text-3:   #555555;
+  --ink:      #FFFFFF;   /* accent lines / rings */
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
+/* ── Light mode ── */
+[data-theme="light"] {
+  --bg:       #FFFFFF;
+  --bg-card:  #F5F5F5;
+  --bg-hover: #EBEBEB;
+  --border:   #E0E0E0;
+  --border-2: #CCCCCC;
+  --text:     #0A0A0A;
+  --text-2:   #555555;
+  --text-3:   #999999;
+  --ink:      #0A0A0A;
 }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  background-color: var(--bg-base);
-  color: var(--text-primary);
-  line-height: 1.6;
-}
-
-::selection {
-  background: rgba(200,169,110,0.25);
-  color: var(--text-primary);
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--bg-base); }
-::-webkit-scrollbar-thumb { background: var(--border-accent); border-radius: 2px; }
-
-/* Section divider line */
-.section-line {
-  height: 1px;
-  background: linear-gradient(90deg, var(--accent), transparent);
-  margin-bottom: 2rem;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { background: var(--bg); color: var(--text); line-height: 1.6; transition: background 0.25s, color 0.25s; }
+::selection { background: rgba(128,128,128,0.25); }
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 2px; }

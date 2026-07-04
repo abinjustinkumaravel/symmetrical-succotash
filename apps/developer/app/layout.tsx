@@ -1,26 +1,21 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Outfit, Syncopate, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["300", "400", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-cormorant",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-space-grotesk",
   display: "swap",
 });
-const outfit = Outfit({
+
+const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500"],
-  variable: "--font-outfit",
+  variable: "--font-inter",
   display: "swap",
 });
-const syncopate = Syncopate({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-syncopate",
-  display: "swap",
-});
+
 const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
@@ -29,9 +24,9 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Abin Justin Kumaravel — AI Engineer · Full-Stack Developer",
+  title: "Abin J — AI Engineer · Full-Stack Developer",
   description:
-    "AI Engineer and Full-Stack Developer. Built production RAG systems, LLM pipelines, and deployed a data governance portal for the Qatar NPC Government on GCP.",
+    "AI Engineer and Full-Stack Developer specialising in LLM pipelines, RAG architectures, and Python-first backends. Building AI systems that run in production.",
   keywords: [
     "AI Engineer",
     "LLM Developer",
@@ -52,7 +47,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${outfit.variable} ${syncopate.variable} ${jetbrains.variable}`}
+      data-theme="light"
+      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrains.variable}`}
+      suppressHydrationWarning
     >
       <body>{children}</body>
     </html>

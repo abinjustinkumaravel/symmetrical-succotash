@@ -27,7 +27,7 @@ const ENTRIES: TimelineEntry[] = [
     period: "Feb 2025 – Oct 2025",
     role: "Data Integration Developer Trainee",
     company: "Infaworx",
-    desc: "Full-stack developer on the Qatar NPC Government Data Governance Portal — a multi-agency platform built to standardize and govern data across government bodies. Integrated an LLM-powered query/response system, designed a hybrid RAG pipeline over the knowledge base, and implemented Redis-based session management with JWT auth, HTTP-only cookies, and IP whitelisting. Reduced manual access-control overhead by an estimated 20–30%. Deployed and managed infrastructure end-to-end on GCP.",
+    desc: "Full-stack developer at Infaworx Data Management Pvt Ltd on enterprise data management platforms for NPC Qatar, PIF, and SDB. Integrated an LLM-powered query/response system, designed a hybrid RAG pipeline over the knowledge base, and implemented Redis-based session management with JWT auth, HTTP-only cookies, and IP whitelisting. Reduced manual access-control overhead by an estimated 20–30%. Deployed and managed infrastructure end-to-end on GCP.",
     skills: ["Node.js", "React/Next.js", "FastAPI", "RAG", "Redis", "JWT", "GCP", "LLM Integration"],
     side: "right",
   },

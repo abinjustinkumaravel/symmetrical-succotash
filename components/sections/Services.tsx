@@ -61,7 +61,7 @@ export default function Services() {
       ref={ref}
       style={{ background: "var(--bg-secondary)", padding: "clamp(5rem, 8vw, 8rem) 0" }}
     >
-      <div className="mx-auto px-6 md:px-10">
+      <div className="mx-auto" style={{ paddingLeft: "clamp(2rem, 5vw, 5rem)", paddingRight: "clamp(2rem, 5vw, 5rem)" }}>
 
         {/* ── Section header ── */}
         <ScrollReveal className="mb-12">

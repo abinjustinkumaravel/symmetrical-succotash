@@ -98,7 +98,8 @@ export default function Identity() {
       </div>
 
       <div
-        className="relative mx-auto px-6 md:px-10"
+        className="relative mx-auto"
+        style={{ paddingLeft: "clamp(2rem, 5vw, 5rem)", paddingRight: "clamp(2rem, 5vw, 5rem)" }}
         // style={{ maxWidth: "1400px" }}
       >
         {/* Header */}

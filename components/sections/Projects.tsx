@@ -381,7 +381,7 @@ export default function Projects() {
         overflowX: "hidden",
       }}
     >
-      <div className="mx-auto px-6 md:px-10">
+      <div className="mx-auto" style={{ paddingLeft: "clamp(2rem, 5vw, 5rem)", paddingRight: "clamp(2rem, 5vw, 5rem)" }}>
 
         {/* ── Header ── */}
         <ScrollReveal className="mb-14">

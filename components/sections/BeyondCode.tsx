@@ -64,8 +64,10 @@ export default function BeyondCode() {
       />
 
       <div
-        className="relative mx-auto px-6 md:px-10"
+        className="relative mx-auto"
         style={{
+          paddingLeft: "clamp(2rem, 5vw, 5rem)",
+          paddingRight: "clamp(2rem, 5vw, 5rem)",
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
           gap: "clamp(2rem, 6vw, 6rem)",

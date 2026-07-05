@@ -204,7 +204,7 @@ export default function DevMain() {
     <main style={{ background: "var(--bg)", transition: "background 0.25s", overflowY: "auto" }}>
 
       {/* ── Stat strip ──────────────────────────────────────────── */}
-      <div style={{
+      <div className="dev-stats-strip" style={{
         display: "grid", gridTemplateColumns: "repeat(4, 1fr)",
         borderBottom: "1px solid var(--border)",
       }}>
@@ -232,7 +232,7 @@ export default function DevMain() {
       </div>
 
       {/* ── About ───────────────────────────────────────────────── */}
-      <div style={{ padding: "32px 32px 0" }}>
+      <div className="dev-main-section-top" style={{ padding: "32px 32px 0" }}>
         <SectionTitle>About</SectionTitle>
         <Reveal>
           <p style={{
@@ -250,7 +250,7 @@ export default function DevMain() {
       </div>
 
       {/* ── Experience ──────────────────────────────────────────── */}
-      <div style={{ padding: "0 32px" }}>
+      <div className="dev-main-section" style={{ padding: "0 32px" }}>
         <SectionTitle>Experience</SectionTitle>
         <div style={{ position: "relative", paddingLeft: 18, marginBottom: 32 }}>
           {/* vertical line */}
@@ -306,7 +306,7 @@ export default function DevMain() {
       </div>
 
       {/* ── Projects ────────────────────────────────────────────── */}
-      <div style={{ padding: "0 32px" }}>
+      <div className="dev-main-section" style={{ padding: "0 32px" }}>
         <SectionTitle>Projects</SectionTitle>
         <div style={{
           display: "grid",
@@ -366,7 +366,7 @@ export default function DevMain() {
       </div>
 
       {/* ── Education ───────────────────────────────────────────── */}
-      <div style={{ padding: "0 32px" }}>
+      <div className="dev-main-section" style={{ padding: "0 32px" }}>
         <SectionTitle>Education</SectionTitle>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(230px, 1fr))", gap: 10, marginBottom: 32 }}>
           {EDUCATION.map((edu, i) => (
@@ -415,7 +415,7 @@ export default function DevMain() {
       </div>
 
       {/* ── DSA Stats ───────────────────────────────────────────── */}
-      <div style={{ padding: "0 32px" }}>
+      <div className="dev-main-section" style={{ padding: "0 32px" }}>
         <SectionTitle>Problem Solving</SectionTitle>
         <Reveal>
           <div style={{
@@ -431,7 +431,7 @@ export default function DevMain() {
             <p style={{ fontFamily: "var(--font-mono)", fontSize: 9, color: "var(--text-3)", letterSpacing: "0.08em", marginBottom: 18 }}>
               PROBLEMS SOLVED ACROSS PLATFORMS
             </p>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+            <div className="dev-dsa-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
               {[
                 { name: "LeetCode",  count: "200+", topics: ["Arrays", "Dynamic Programming", "Trees & Graphs", "Binary Search"] },
                 { name: "HackerRank", count: "100+", topics: ["Python 5★", "SQL 4★", "Problem Solving", "Data Structures"] },
@@ -460,7 +460,7 @@ export default function DevMain() {
       </div>
 
       {/* ── Contact ─────────────────────────────────────────────── */}
-      <div style={{ padding: "0 32px" }}>
+      <div className="dev-main-section" style={{ padding: "0 32px" }}>
         <SectionTitle>Contact</SectionTitle>
         <Reveal>
           <div style={{

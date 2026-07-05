@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Mail, MapPin, Download, Play, X, Sun, Moon } from "lucide-react";
+import { Mail, MapPin, Download, Play, Pause, X, Sun, Moon, ChevronLeft } from "lucide-react";
 import { useCallback } from "react";
 import { SiPython, SiJavascript, SiTypescript, SiReact, SiFastapi } from "react-icons/si";
 import { FaGithub, FaLinkedinIn, FaBrain, FaTwitter } from "react-icons/fa";
@@ -144,7 +144,13 @@ const CONTACT = [
   { icon: <MapPin size={11} />,     text: "Thiruvananthapuram, Kerala",      href: undefined },
 ];
 
-export default function DevSidebar() {
+export default function DevSidebar({
+  sidebarOpen,
+  onCollapse,
+}: {
+  sidebarOpen: boolean;
+  onCollapse: () => void;
+}) {
   const [videoOpen, setVideoOpen] = useState(false);
   const [photoHover, setPhotoHover] = useState(false);
 
@@ -164,13 +170,35 @@ export default function DevSidebar() {
       <aside style={{
         background: "var(--bg-card)",
         borderRight: "1px solid var(--border)",
-        position: "sticky", top: 0, height: "100vh", overflowY: "auto",
+        position: "sticky", top: 0, height: "100vh",
+        overflowX: "hidden",
+        overflowY: sidebarOpen ? "auto" : "hidden",
         display: "flex", flexDirection: "column",
-        padding: "28px 22px",
+        padding: sidebarOpen ? "28px 22px" : "0",
         gap: 22,
         scrollbarWidth: "none",
-        transition: "background 0.25s, border-color 0.25s",
+        transition: "background 0.25s, border-color 0.25s, padding 0.3s ease",
+        minWidth: 0,
       }}>
+
+        {/* ── Collapse button ── */}
+        <div style={{ display: "flex", justifyContent: "flex-end", flexShrink: 0 }}>
+          <button
+            onClick={onCollapse}
+            aria-label="Collapse sidebar"
+            style={{
+              display: "flex", alignItems: "center", justifyContent: "center",
+              width: 28, height: 28, borderRadius: 5,
+              background: "transparent", border: "1px solid var(--border)",
+              color: "var(--text-3)", cursor: "pointer",
+              transition: "background 0.2s, color 0.2s, border-color 0.2s",
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = "var(--bg-hover)"; e.currentTarget.style.color = "var(--text)"; e.currentTarget.style.borderColor = "var(--border-2)"; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--text-3)"; e.currentTarget.style.borderColor = "var(--border)"; }}
+          >
+            <ChevronLeft size={13} />
+          </button>
+        </div>
 
         {/* ── Profile photo + name ── */}
         <motion.div
@@ -211,11 +239,11 @@ export default function DevSidebar() {
                 transition: "filter 0.2s",
               }}
             />
-            {/* Play overlay */}
+            {/* Play / Pause overlay */}
             <div style={{
               position: "absolute", inset: 0, borderRadius: "50%",
               display: "flex", alignItems: "center", justifyContent: "center",
-              opacity: photoHover ? 1 : 0,
+              opacity: photoHover || videoOpen ? 1 : 0,
               transition: "opacity 0.2s",
             }}>
               <div style={{
@@ -223,7 +251,10 @@ export default function DevSidebar() {
                 background: "rgba(255,255,255,0.9)",
                 display: "flex", alignItems: "center", justifyContent: "center",
               }}>
-                <Play size={12} fill="#000" color="#000" style={{ marginLeft: 2 }} />
+                {videoOpen
+                  ? <Pause size={12} fill="#000" color="#000" />
+                  : <Play size={12} fill="#000" color="#000" style={{ marginLeft: 2 }} />
+                }
               </div>
             </div>
           </button>

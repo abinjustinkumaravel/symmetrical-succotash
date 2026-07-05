@@ -39,3 +39,46 @@ body { background: var(--bg); color: var(--text); line-height: 1.6; transition: 
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 2px; }
+
+/* ── Responsive overrides ───────────────────────────────────────── */
+
+/* Tablet + mobile: sidebar resets sticky/fixed height */
+@media (max-width: 860px) {
+  aside {
+    position: static !important;
+    height: auto !important;
+    overflow: hidden !important;
+    transition: height 0.3s ease, padding 0.3s ease !important;
+  }
+}
+
+/* Stat strip: 4 cols → 2 cols on tablet/mobile */
+@media (max-width: 640px) {
+  .dev-stats-strip {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .dev-stats-strip > *:nth-child(2) {
+    border-right: none !important;
+  }
+  .dev-stats-strip > *:nth-child(3) {
+    border-right: 1px solid var(--border) !important;
+  }
+}
+
+/* Main content padding: reduce on small screens */
+@media (max-width: 640px) {
+  .dev-main-section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .dev-main-section-top {
+    padding: 24px 16px 0 !important;
+  }
+}
+
+/* DSA grid: 2 cols → 1 col on very small screens */
+@media (max-width: 420px) {
+  .dev-dsa-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

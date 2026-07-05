@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Mail, MapPin, Download, Play, Pause, X, Sun, Moon, ChevronLeft } from "lucide-react";
+import { Mail, MapPin, Download, Play, Pause, X, Sun, Moon } from "lucide-react";
 import { useCallback } from "react";
 import { SiPython, SiJavascript, SiTypescript, SiReact, SiFastapi } from "react-icons/si";
 import { FaGithub, FaLinkedinIn, FaBrain, FaTwitter } from "react-icons/fa";
@@ -144,13 +144,7 @@ const CONTACT = [
   { icon: <MapPin size={11} />,     text: "Thiruvananthapuram, Kerala",      href: undefined },
 ];
 
-export default function DevSidebar({
-  sidebarOpen,
-  onCollapse,
-}: {
-  sidebarOpen: boolean;
-  onCollapse: () => void;
-}) {
+export default function DevSidebar({ sidebarOpen }: { sidebarOpen: boolean }) {
   const [videoOpen, setVideoOpen] = useState(false);
   const [photoHover, setPhotoHover] = useState(false);
 
@@ -179,25 +173,6 @@ export default function DevSidebar({
         transition: "background 0.25s, border-color 0.25s, padding 0.3s ease",
         minWidth: 0,
       }}>
-
-        {/* ── Collapse button ── */}
-        <div style={{ display: "flex", justifyContent: "flex-end", flexShrink: 0 }}>
-          <button
-            onClick={onCollapse}
-            aria-label="Collapse sidebar"
-            style={{
-              display: "flex", alignItems: "center", justifyContent: "center",
-              width: 28, height: 28, borderRadius: 5,
-              background: "transparent", border: "1px solid var(--border)",
-              color: "var(--text-3)", cursor: "pointer",
-              transition: "background 0.2s, color 0.2s, border-color 0.2s",
-            }}
-            onMouseEnter={e => { e.currentTarget.style.background = "var(--bg-hover)"; e.currentTarget.style.color = "var(--text)"; e.currentTarget.style.borderColor = "var(--border-2)"; }}
-            onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--text-3)"; e.currentTarget.style.borderColor = "var(--border)"; }}
-          >
-            <ChevronLeft size={13} />
-          </button>
-        </div>
 
         {/* ── Profile photo + name ── */}
         <motion.div

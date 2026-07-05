@@ -10,5 +10,8 @@
     "dev:developer": "npm -w developer run dev",
     "build:consultant": "npm -w consultant run build",
     "build:developer": "npm -w developer run build"
+  },
+  "optionalDependencies": {
+    "lightningcss-linux-x64-gnu": "1.32.0"
   }
 }

@@ -144,7 +144,7 @@ const CONTACT = [
   { icon: <MapPin size={11} />,     text: "Thiruvananthapuram, Kerala",      href: undefined },
 ];
 
-export default function DevSidebar({ sidebarOpen }: { sidebarOpen: boolean }) {
+export default function DevSidebar() {
   const [videoOpen, setVideoOpen] = useState(false);
   const [photoHover, setPhotoHover] = useState(false);
 
@@ -167,7 +167,7 @@ export default function DevSidebar({ sidebarOpen }: { sidebarOpen: boolean }) {
         position: "sticky", top: 0, height: "100dvh",
         overflow: "hidden",
         display: "flex", flexDirection: "column",
-        padding: sidebarOpen ? "28px 22px" : "0",
+        padding: "28px 22px",
         gap: 22,
         scrollbarWidth: "none",
         transition: "background 0.25s, border-color 0.25s, padding 0.3s ease",

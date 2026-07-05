@@ -201,7 +201,7 @@ const EDUCATION = [
 
 export default function DevMain() {
   return (
-    <main style={{ background: "var(--bg)", transition: "background 0.25s", overflowY: "auto" }}>
+    <main style={{ background: "var(--bg)", transition: "background 0.25s" }}>
 
       {/* ── Stat strip ──────────────────────────────────────────── */}
       <div className="dev-stats-strip" style={{

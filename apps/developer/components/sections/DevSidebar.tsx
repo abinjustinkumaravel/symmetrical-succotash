@@ -170,9 +170,8 @@ export default function DevSidebar({
       <aside style={{
         background: "var(--bg-card)",
         borderRight: "1px solid var(--border)",
-        position: "sticky", top: 0, height: "100vh",
-        overflowX: "hidden",
-        overflowY: sidebarOpen ? "auto" : "hidden",
+        position: "sticky", top: 0, height: "100dvh",
+        overflow: "hidden",
         display: "flex", flexDirection: "column",
         padding: sidebarOpen ? "28px 22px" : "0",
         gap: 22,

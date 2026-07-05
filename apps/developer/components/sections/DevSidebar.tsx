@@ -165,7 +165,7 @@ export default function DevSidebar() {
         background: "var(--bg-card)",
         borderRight: "1px solid var(--border)",
         position: "sticky", top: 0, height: "100dvh",
-        overflow: "hidden",
+        overflowX: "hidden", overflowY: "auto",
         display: "flex", flexDirection: "column",
         padding: "28px 22px",
         gap: 22,

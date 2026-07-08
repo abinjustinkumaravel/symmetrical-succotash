@@ -62,6 +62,15 @@ const PROJECTS: Project[] = [
   },
   {
     id: "p6",
+    gradient: "linear-gradient(135deg, #031A14 0%, #0A4030 50%, #0E6B4A 100%)",
+    badge: "DEEP LEARNING · BIOIMAGE · DRUG DISCOVERY",
+    title: "Nuclei Segmentation Pipeline",
+    tags: ["PyTorch", "U-Net", "ResNet34", "scikit-image", "Albumentations", "Watershed", "Kaggle GPU"],
+    desc: "End-to-end deep learning pipeline for automated cell nucleus segmentation on the 2018 Data Science Bowl microscopy dataset (Broad Institute BBBC). U-Net with ResNet34 encoder (ImageNet-pretrained) trained with Dice + BCE combined loss; watershed post-processing to separate touching nuclei instances. Quantitative phenotypic profiling module extracting per-image morphological features — nucleus count, area, eccentricity, solidity, intensity — directly analogous to compound screening workflows in drug discovery.",
+    impact: "DICE 0.87 · IoU 0.79 · 93.5% RECALL · 82.4% PRECISION",
+  },
+  {
+    id: "p7",
     gradient: "linear-gradient(135deg, #1A0E00 0%, #3D1F00 50%, #7C3A00 100%)",
     badge: "COMPUTER VISION · REAL-TIME",
     title: "YOLOv8 Asset Tracker",
@@ -70,7 +79,7 @@ const PROJECTS: Project[] = [
     impact: "REAL-TIME DETECTION · STRUCTURED METADATA",
   },
   {
-    id: "p7",
+    id: "p8",
     gradient: "linear-gradient(135deg, #0A1410 0%, #1A2D25 50%, #243D33 100%)",
     badge: "E-COMMERCE · CLIENT PRODUCT",
     title: "AL Traders",
@@ -79,7 +88,7 @@ const PROJECTS: Project[] = [
     impact: "CLIENT DELIVERY · RESPONSIVE · PRODUCT SHOWCASE",
   },
   {
-    id: "p8",
+    id: "p9",
     gradient: "linear-gradient(135deg, #141008 0%, #2D2010 50%, #3D2E16 100%)",
     badge: "STATIC SITE · NETLIFY",
     title: "Pommi Catering",

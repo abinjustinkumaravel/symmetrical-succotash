@@ -19,8 +19,8 @@ const ENTRIES: TimelineEntry[] = [
     period: "2023 – Present",
     role: "Independent Consultant",
     company: "aahrbitx",
-    desc: "Delivering end-to-end software and AI solutions for clients across industries — from static websites and e-commerce platforms to full-stack fleet management systems and LLM-powered tools. Clients include Pommi Caterers, AL Traders, Butterbyte's, Entice Innovations, and Mohan Cabs.",
-    skills: ["Pommi Caterers", "AL Traders", "Butterbyte's", "Entice Innovations", "Mohan Cabs"],
+    desc: "Delivering end-to-end software and AI solutions for clients across industries — from static websites and e-commerce platforms to full-stack fleet management systems and LLM-powered tools. Also pursuing independent ML research: built a U-Net nucleus segmentation pipeline on the 2018 Data Science Bowl dataset achieving Dice 0.87 / IoU 0.79, with downstream morphological feature extraction applicable to drug discovery screening. Clients include Pommi Caterers, AL Traders, Butterbyte's, Entice Innovations, and Mohan Cabs.",
+    skills: ["PyTorch", "U-Net", "scikit-image", "Albumentations", "Pommi Caterers", "AL Traders", "Butterbyte's", "Entice Innovations", "Mohan Cabs"],
     side: "left",
   },
   {

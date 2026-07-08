@@ -133,11 +133,12 @@ function Section({ children, gap = 16 }: { children: React.ReactNode; gap?: numb
 }
 
 /* ── auto-print ─────────────────────────────────────────────────── */
-function AutoPrint() {
+function AutoPrint({ onAdmin }: { onAdmin: () => void }) {
   const params = useSearchParams();
   useEffect(() => {
     if (params.get("print") === "true") setTimeout(() => window.print(), 400);
-  }, [params]);
+    if (params.get("admin") === "true") onAdmin();
+  }, [params, onAdmin]);
   return null;
 }
 
@@ -316,7 +317,7 @@ export default function ResumePage() {
 
   return (
     <>
-      <Suspense fallback={null}><AutoPrint /></Suspense>
+      <Suspense fallback={null}><AutoPrint onAdmin={() => setAdminOpen(true)} /></Suspense>
 
       {adminOpen && (
         <AdminPanel

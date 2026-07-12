@@ -83,6 +83,21 @@ const ROLES: ResumeRole[] = [
     ],
   },
   {
+    id: "linux-admin",
+    label: "Linux / Sysadmin",
+    title: "Linux Administrator | Infrastructure & DevOps",
+    summary:
+      "MCA graduate (8.6 CGPA) with hands-on experience managing self-hosted Linux (Ubuntu) servers, configuring reverse proxies, container orchestration, and production infrastructure deployments. Comfortable working directly in the terminal across server setup, service management, network configuration, SSL, and security hardening. Experienced deploying and maintaining multi-service application stacks using Docker Compose, Traefik, and Nginx across VPS and cloud (GCP) environments. Eager to grow into a structured Linux administration role with mentorship and real production exposure.",
+    competencies: [
+      { label: "Operating Systems", value: "Ubuntu Linux - CLI administration, service management, user/permission management, system monitoring" },
+      { label: "Networking", value: "IP addressing, DNS configuration, HTTP/HTTPS, firewall basics, SSL/TLS certificate management, VPN awareness" },
+      { label: "Reverse Proxy & Routing", value: "Traefik (self-hosted, automatic SSL), Nginx (reverse proxy, load balancing, static serving) - configured and maintained in production" },
+      { label: "Containerisation", value: "Docker, Docker Compose - multi-service stack setup, container networking, volume management, health monitoring" },
+      { label: "Security", value: "IP whitelisting, JWT authentication, Redis session management, HTTP-only cookie config, role-based access control, SSL enforcement, basic system hardening" },
+      { label: "Cloud & Tools", value: "GCP - VM setup, environment configuration, production deployment, infrastructure monitoring. Git, Bash scripting, Python (automation), Jira, ServiceNow" },
+    ],
+  },
+  {
     id: "cv-engineer",
     label: "Computer Vision Engineer",
     title: "Computer Vision Engineer | ML & Deep Learning",
@@ -215,6 +230,15 @@ function AdminPanel({
 
 /* ── experience bullets per role ────────────────────────────────── */
 function AahrbitxBullets({ roleId }: { roleId: string }) {
+  if (roleId === "linux-admin") return <>
+    <Bullet value="Set up and maintained Ubuntu Linux VPS environments for production client applications - server hardening, user management, SSH configuration, and firewall setup." />
+    <Bullet value="Configured Traefik as a reverse proxy with automatic SSL certificate provisioning - handling routing, HTTPS enforcement, and domain management for multiple services on the same host." />
+    <Bullet value="Deployed and managed multi-service Docker Compose stacks (backend APIs, databases, frontend, proxy) - monitoring container health, managing restarts, and troubleshooting service failures." />
+    <Bullet value="Maintained Nginx configurations for reverse proxying, static file serving, and load balancing." />
+    <Bullet value="Managed SSL certificates, DNS records, and domain routing for client production environments." />
+    <Bullet value="Implemented access control: IP whitelisting, environment variable management, and secrets handling across production servers." />
+  </>;
+
   if (roleId === "cv-engineer") return <>
     <Bullet value={<>ML Research: trained U-Net with ResNet34 encoder (ImageNet-pretrained) on the <a href="https://www.kaggle.com/code/abinj12553/nuclei-segmentation-phenotypic-profiling-for-dru" style={{ color: BLUE }}>2018 Data Science Bowl</a> microscopy dataset - Dice 0.87 / IoU 0.79 / 93.5% recall / 82.4% precision. Combined Dice + BCE loss; watershed post-processing to separate touching nuclei instances.</>} />
     <Bullet value="Downstream phenotypic profiling module using skimage.measure.regionprops: per-image morphological features (nucleus count, area, eccentricity, solidity, intensity) - directly analogous to high-content screening workflows in drug discovery." />
@@ -249,6 +273,14 @@ function AahrbitxBullets({ roleId }: { roleId: string }) {
 }
 
 function InfaworxBullets({ roleId }: { roleId: string }) {
+  if (roleId === "linux-admin") return <>
+    <Bullet value="Deployed and managed application infrastructure on GCP - VM configuration, service deployment, environment setup, and uptime monitoring." />
+    <Bullet value="Configured and maintained authentication and session management: Redis sessions, HTTP-only cookies, JWT tokens, and IP whitelisting across live government and financial sector platforms." />
+    <Bullet value="Diagnosed and resolved infrastructure-level issues in production - service failures, configuration errors, and network issues - under real enterprise delivery timelines." />
+    <Bullet value="Used Jira and ServiceNow for incident tracking, change management, and cross-team coordination." />
+    <Bullet value="Maintained deployment documentation and configuration records across all projects." />
+  </>;
+
   if (roleId === "cv-engineer") return <>
     <Bullet value={<><a href="https://npc-qc-uat-marketplace.npc.qa" style={{ color: BLUE }}>NPC Qatar</a> - Data Marketplace: integrated RAG-based chatbot using ChromaDB and dense embedding model (BAAI/bge-m3) for intelligent data product recommendations and semantic search.</>} />
     <Bullet value="SDB - LLM Classification Middleware: built on-premises PHI3 LLM pipeline for automated confidentiality classification across large-scale migrating datasets. Multi-level VM infrastructure, zero cloud dependency." />
@@ -410,21 +442,34 @@ export default function ResumePage() {
           <Section>
             <H2>Technical Stack</H2>
             <div style={{ marginTop: 8 }}>
-              <Bullet label="Languages" value="Python, JavaScript, TypeScript, SQL" />
-              <Bullet label="Frameworks & Libraries" value="FastAPI, PyTorch, TensorFlow, Hugging Face Transformers, llama-cpp-python, segmentation-models-pytorch, scikit-image, Albumentations, NumPy, Pandas, scikit-learn, React, Next.js, Node.js, Express.js" />
-              <Bullet label="Models & Embeddings" value="Qwen2.5 (3B-Instruct), BAAI/bge-m3 (1024-dim), BGE-Reranker-Base, YOLOv8, ResNet34 (ImageNet-pretrained U-Net encoder)" />
-              <Bullet label="Databases & Session Stores" value="ChromaDB, PostgreSQL, SQLite, Redis" />
-              <Bullet label="Infrastructure & Tools" value="GCP, Docker, Docker Compose, Nginx, Traefik, Git, Jira, ServiceNow" />
+              {role.id === "linux-admin" ? <>
+                <Bullet label="Languages & Scripting" value="Bash, Python (automation scripts), SQL" />
+                <Bullet label="Infrastructure & Proxy" value="Traefik (automatic SSL), Nginx (reverse proxy, load balancing), Docker, Docker Compose, systemd, SSH, UFW" />
+                <Bullet label="Cloud & Monitoring" value="GCP - VM provisioning, environment config, uptime monitoring, container health, service logging" />
+                <Bullet label="Security & Auth" value="SSL/TLS, JWT, Redis session management, IP whitelisting, HTTP-only cookies, role-based access control" />
+                <Bullet label="Databases" value="PostgreSQL, Redis, SQLite - installation, configuration, basic administration" />
+                <Bullet label="Tools" value="Git, Jira, ServiceNow" />
+              </> : <>
+                <Bullet label="Languages" value="Python, JavaScript, TypeScript, SQL" />
+                <Bullet label="Frameworks & Libraries" value="FastAPI, PyTorch, TensorFlow, Hugging Face Transformers, llama-cpp-python, segmentation-models-pytorch, scikit-image, Albumentations, NumPy, Pandas, scikit-learn, React, Next.js, Node.js, Express.js" />
+                <Bullet label="Models & Embeddings" value="Qwen2.5 (3B-Instruct), BAAI/bge-m3 (1024-dim), BGE-Reranker-Base, YOLOv8, ResNet34 (ImageNet-pretrained U-Net encoder)" />
+                <Bullet label="Databases & Session Stores" value="ChromaDB, PostgreSQL, SQLite, Redis" />
+                <Bullet label="Infrastructure & Tools" value="GCP, Docker, Docker Compose, Nginx, Traefik, Git, Jira, ServiceNow" />
+              </>}
             </div>
           </Section>
 
           {/* Professional Experience — Page 1 portion */}
           <Section gap={0}>
-            <H2>Professional Experience</H2>
+            <H2>{role.id === "linux-admin" ? "Infrastructure Experience" : "Professional Experience"}</H2>
             <div style={{ marginTop: 10 }}>
               <div style={{ marginBottom: 0 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 2 }}>
-                  <strong style={{ fontSize: 11.5, color: BLACK }}>Independent Consultant - aahrbitx</strong>
+                  <strong style={{ fontSize: 11.5, color: BLACK }}>
+                    {role.id === "linux-admin"
+                      ? "Self-Hosted Linux Infrastructure - Aahrbitx Client Projects"
+                      : "Independent Consultant - aahrbitx"}
+                  </strong>
                   <span style={{ fontSize: 10.5, color: BODY, fontStyle: "italic", whiteSpace: "nowrap", marginLeft: 8 }}>2023 – Present</span>
                 </div>
                 <AahrbitxBullets roleId={role.id} />
@@ -445,11 +490,17 @@ export default function ResumePage() {
               {/* Infaworx */}
               <div style={{ marginBottom: 14 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 2 }}>
-                  <strong style={{ fontSize: 11.5, color: BLACK }}>Data Integration Developer Trainee - Infaworx Data Management Pvt Ltd</strong>
+                  <strong style={{ fontSize: 11.5, color: BLACK }}>
+                  {role.id === "linux-admin"
+                    ? "Software Developer Trainee - Infaworx Data Management Pvt Ltd"
+                    : "Data Integration Developer Trainee - Infaworx Data Management Pvt Ltd"}
+                </strong>
                   <span style={{ fontSize: 10.5, color: BODY, fontStyle: "italic", whiteSpace: "nowrap", marginLeft: 8 }}>Feb 2025 – Oct 2025</span>
                 </div>
                 <p style={{ fontSize: 11, color: BODY, fontStyle: "italic", margin: "0 0 6px", lineHeight: 1.5 }}>
-                  Delivered three enterprise data projects across NPC Qatar, PIF, and SDB as a full-stack developer.
+                  {role.id === "linux-admin"
+                    ? "Worked on enterprise application deployment and infrastructure across three government and financial sector projects."
+                    : "Delivered three enterprise data projects across NPC Qatar, PIF, and SDB as a full-stack developer."}
                 </p>
                 <InfaworxBullets roleId={role.id} />
               </div>
@@ -471,13 +522,25 @@ export default function ResumePage() {
           </Section>
 
           {/* Education */}
-          <Section gap={0}>
+          <Section gap={role.id === "linux-admin" ? 16 : 0}>
             <H2>Education</H2>
             <div style={{ marginTop: 8 }}>
               <Bullet value={<>Master of Computer Applications (MCA) - SRM Institute of Science and Technology - <strong>CGPA: 8.6</strong> (2024 – 2026)</>} />
               <Bullet value={<>Bachelor of Computer Applications (BCA), Data Science - SRM Institute of Science and Technology - <strong>CGPA: 8.5</strong> (2021 – 2024)</>} />
             </div>
           </Section>
+
+          {/* Additional — Linux Admin only */}
+          {role.id === "linux-admin" && (
+            <Section gap={0}>
+              <H2>Additional</H2>
+              <div style={{ marginTop: 8 }}>
+                <Bullet value="Willing to provide on-call, after-hours, or rotational support as required - comfortable with 24x7 production environments." />
+                <Bullet value="Actively learning cloud fundamentals (GCP hands-on), networking concepts, and security best practices." />
+                <Bullet value="Open to pursuing RHCSA / AWS Fundamentals certification as part of career growth." />
+              </div>
+            </Section>
+          )}
 
         </div>
 

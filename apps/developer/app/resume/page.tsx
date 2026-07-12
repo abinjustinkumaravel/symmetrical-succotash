@@ -83,6 +83,22 @@ const ROLES: ResumeRole[] = [
     ],
   },
   {
+    id: "software-dev",
+    label: "Software Developer",
+    title: "Software Developer | Full-Stack & AI Engineer",
+    summary:
+      "MCA graduate (8.6 CGPA) with hands-on experience designing, building, and deploying full-stack web applications and AI-powered systems in production environments. Comfortable working across the full software development lifecycle - from requirement gathering and architecture through to deployment, testing, and maintenance. Strong foundation in Python, JavaScript/TypeScript, REST API design, and database management. Proven ability to write clean, maintainable code and deliver working software under real project timelines across multiple client engagements.",
+    competencies: [
+      { label: "Backend Development", value: "FastAPI, Node.js, Express.js, REST API design, JWT authentication, Redis session management, role-based access control" },
+      { label: "Frontend Development", value: "React, Next.js, TypeScript, frontend/backend validation layers" },
+      { label: "Databases", value: "PostgreSQL, SQLite, Redis, ChromaDB" },
+      { label: "DevOps & Deployment", value: "Docker, Docker Compose, Nginx, Traefik, GCP, Linux CLI, VPS administration" },
+      { label: "Programming Languages", value: "Python, JavaScript, TypeScript, SQL" },
+      { label: "Libraries & Tools", value: "NumPy, Pandas, PyTorch, scikit-learn, Hugging Face Transformers, Git, Jira, ServiceNow" },
+      { label: "Real-time & Integrations", value: "Socket.io, WhatsApp Business API, Razorpay payment integration" },
+    ],
+  },
+  {
     id: "linux-admin",
     label: "Linux / Sysadmin",
     title: "Linux Administrator | Infrastructure & DevOps",
@@ -230,6 +246,13 @@ function AdminPanel({
 
 /* ── experience bullets per role ────────────────────────────────── */
 function AahrbitxBullets({ roleId }: { roleId: string }) {
+  if (roleId === "software-dev") return <>
+    <Bullet value={<><a href="https://www.mohancabs.in" style={{ color: BLUE }}>Mohan Cabs</a> - Built a multi-role fleet management platform with real-time GPS tracking, WhatsApp OTP automation via WhatsApp Business API, and Razorpay payment integration. Deployed on VPS using Docker + Traefik with full production configuration.</>} />
+    <Bullet value={<><a href="https://www.altraders.in" style={{ color: BLUE }}>AL Traders</a> - Built a full e-commerce catalog platform for a retail client.</>} />
+    <Bullet value={<><a href="https://www.pommicaters.in" style={{ color: BLUE }}>Pommi Caterers</a>, <a href="https://www.butterbytes.in" style={{ color: BLUE }}>Butterbyte&apos;s</a>, <a href="https://www.enticeinnovations.com" style={{ color: BLUE }}>Entice Innovations</a> - Delivered static and dynamic business web solutions, deployed on Netlify and custom VPS.</>} />
+    <Bullet value="Managed client requirements, timelines, and post-deployment support across all projects - developing strong ownership and delivery habits." />
+  </>;
+
   if (roleId === "linux-admin") return <>
     <Bullet value="Set up and maintained Ubuntu Linux VPS environments for production client applications - server hardening, user management, SSH configuration, and firewall setup." />
     <Bullet value="Configured Traefik as a reverse proxy with automatic SSL certificate provisioning - handling routing, HTTPS enforcement, and domain management for multiple services on the same host." />
@@ -273,6 +296,15 @@ function AahrbitxBullets({ roleId }: { roleId: string }) {
 }
 
 function InfaworxBullets({ roleId }: { roleId: string }) {
+  if (roleId === "software-dev") return <>
+    <Bullet value={<><a href="https://npc-qc-uat-marketplace.npc.qa" style={{ color: BLUE }}>NPC Qatar - Data Marketplace</a>: Built an enterprise data marketplace platform with a RAG-based chatbot for intelligent data product recommendations, real-time team collaboration via Socket.io, and session-based authentication middleware.</>} />
+    <Bullet value="PIF - Data Sharing & Quality Platform: Developed a cross-department data sharing and quality management platform (React + Express.js) with automated quality validation workflows." />
+    <Bullet value="SDB - LLM Classification Middleware: Built on-premises LLM-based classification middleware for automated confidentiality detection across large-scale data migration datasets - zero cloud dependency." />
+    <Bullet value="Designed and implemented authentication pipelines: Redis session management, HTTP-only cookies, JWT auth, role-based access control, and IP whitelisting across all projects." />
+    <Bullet value="Deployed and managed application infrastructure on Google Cloud Platform (GCP)." />
+    <Bullet value="Collaborated in agile sprints, participated in code reviews, and maintained technical documentation across all three projects." />
+  </>;
+
   if (roleId === "linux-admin") return <>
     <Bullet value="Deployed and managed application infrastructure on GCP - VM configuration, service deployment, environment setup, and uptime monitoring." />
     <Bullet value="Configured and maintained authentication and session management: Redis sessions, HTTP-only cookies, JWT tokens, and IP whitelisting across live government and financial sector platforms." />
@@ -438,26 +470,32 @@ export default function ResumePage() {
             </div>
           </Section>
 
-          {/* Technical Stack */}
-          <Section>
-            <H2>Technical Stack</H2>
-            <div style={{ marginTop: 8 }}>
-              {role.id === "linux-admin" ? <>
-                <Bullet label="Languages & Scripting" value="Bash, Python (automation scripts), SQL" />
-                <Bullet label="Infrastructure & Proxy" value="Traefik (automatic SSL), Nginx (reverse proxy, load balancing), Docker, Docker Compose, systemd, SSH, UFW" />
-                <Bullet label="Cloud & Monitoring" value="GCP - VM provisioning, environment config, uptime monitoring, container health, service logging" />
-                <Bullet label="Security & Auth" value="SSL/TLS, JWT, Redis session management, IP whitelisting, HTTP-only cookies, role-based access control" />
-                <Bullet label="Databases" value="PostgreSQL, Redis, SQLite - installation, configuration, basic administration" />
-                <Bullet label="Tools" value="Git, Jira, ServiceNow" />
-              </> : <>
-                <Bullet label="Languages" value="Python, JavaScript, TypeScript, SQL" />
-                <Bullet label="Frameworks & Libraries" value="FastAPI, PyTorch, TensorFlow, Hugging Face Transformers, llama-cpp-python, segmentation-models-pytorch, scikit-image, Albumentations, NumPy, Pandas, scikit-learn, React, Next.js, Node.js, Express.js" />
-                <Bullet label="Models & Embeddings" value="Qwen2.5 (3B-Instruct), BAAI/bge-m3 (1024-dim), BGE-Reranker-Base, YOLOv8, ResNet34 (ImageNet-pretrained U-Net encoder)" />
-                <Bullet label="Databases & Session Stores" value="ChromaDB, PostgreSQL, SQLite, Redis" />
-                <Bullet label="Infrastructure & Tools" value="GCP, Docker, Docker Compose, Nginx, Traefik, Git, Jira, ServiceNow" />
-              </>}
-            </div>
-          </Section>
+          {/* Technical Stack — hidden for software-dev (covered by competencies) */}
+          {role.id !== "software-dev" && (
+            <Section>
+              <H2>Technical Stack</H2>
+              <div style={{ marginTop: 8 }}>
+                {role.id === "linux-admin" ? (
+                  <>
+                    <Bullet label="Languages & Scripting" value="Bash, Python (automation scripts), SQL" />
+                    <Bullet label="Infrastructure & Proxy" value="Traefik (automatic SSL), Nginx (reverse proxy, load balancing), Docker, Docker Compose, systemd, SSH, UFW" />
+                    <Bullet label="Cloud & Monitoring" value="GCP - VM provisioning, environment config, uptime monitoring, container health, service logging" />
+                    <Bullet label="Security & Auth" value="SSL/TLS, JWT, Redis session management, IP whitelisting, HTTP-only cookies, role-based access control" />
+                    <Bullet label="Databases" value="PostgreSQL, Redis, SQLite - installation, configuration, basic administration" />
+                    <Bullet label="Tools" value="Git, Jira, ServiceNow" />
+                  </>
+                ) : (
+                  <>
+                    <Bullet label="Languages" value="Python, JavaScript, TypeScript, SQL" />
+                    <Bullet label="Frameworks & Libraries" value="FastAPI, PyTorch, TensorFlow, Hugging Face Transformers, llama-cpp-python, segmentation-models-pytorch, scikit-image, Albumentations, NumPy, Pandas, scikit-learn, React, Next.js, Node.js, Express.js" />
+                    <Bullet label="Models & Embeddings" value="Qwen2.5 (3B-Instruct), BAAI/bge-m3 (1024-dim), BGE-Reranker-Base, YOLOv8, ResNet34 (ImageNet-pretrained U-Net encoder)" />
+                    <Bullet label="Databases & Session Stores" value="ChromaDB, PostgreSQL, SQLite, Redis" />
+                    <Bullet label="Infrastructure & Tools" value="GCP, Docker, Docker Compose, Nginx, Traefik, Git, Jira, ServiceNow" />
+                  </>
+                )}
+              </div>
+            </Section>
+          )}
 
           {/* Professional Experience — Page 1 portion */}
           <Section gap={0}>
@@ -491,7 +529,7 @@ export default function ResumePage() {
               <div style={{ marginBottom: 14 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 2 }}>
                   <strong style={{ fontSize: 11.5, color: BLACK }}>
-                  {role.id === "linux-admin"
+                  {role.id === "linux-admin" || role.id === "software-dev"
                     ? "Software Developer Trainee - Infaworx Data Management Pvt Ltd"
                     : "Data Integration Developer Trainee - Infaworx Data Management Pvt Ltd"}
                 </strong>
@@ -500,6 +538,8 @@ export default function ResumePage() {
                 <p style={{ fontSize: 11, color: BODY, fontStyle: "italic", margin: "0 0 6px", lineHeight: 1.5 }}>
                   {role.id === "linux-admin"
                     ? "Worked on enterprise application deployment and infrastructure across three government and financial sector projects."
+                    : role.id === "software-dev"
+                    ? "Delivered three enterprise software projects as a full-stack developer across government and financial sector clients."
                     : "Delivered three enterprise data projects across NPC Qatar, PIF, and SDB as a full-stack developer."}
                 </p>
                 <InfaworxBullets roleId={role.id} />
@@ -511,15 +551,52 @@ export default function ResumePage() {
                   <strong style={{ fontSize: 11.5, color: BLACK }}>Business Development Associate - AccioJob</strong>
                   <span style={{ fontSize: 10.5, color: BODY, fontStyle: "italic", whiteSpace: "nowrap", marginLeft: 8 }}>Aug 2024 – Sep 2024</span>
                 </div>
-                <Bullet value="Managed a live B2B/B2C sales pipeline using CRM tools - understanding how leads move from problem awareness to product adoption." />
-                <Bullet value="Gained firsthand exposure to how businesses evaluate and pay for software solutions - informs how I scope and prioritise features when building products." />
-                {role.id === "tech-support" && (
-                  <Bullet value="Developed client communication and issue-escalation skills - translating business problems into actionable technical requirements." />
-                )}
+                {role.id === "software-dev" ? (<>
+                  <Bullet value="Managed a live B2B/B2C sales pipeline using CRM tools - developing strong client communication, follow-up, and coordination skills." />
+                  <Bullet value="Gained firsthand exposure to how businesses evaluate and invest in software solutions - directly informs how I scope and prioritise features when building products." />
+                </>) : (<>
+                  <Bullet value="Managed a live B2B/B2C sales pipeline using CRM tools - understanding how leads move from problem awareness to product adoption." />
+                  <Bullet value="Gained firsthand exposure to how businesses evaluate and pay for software solutions - informs how I scope and prioritise features when building products." />
+                  {role.id === "tech-support" && (
+                    <Bullet value="Developed client communication and issue-escalation skills - translating business problems into actionable technical requirements." />
+                  )}
+                </>)}
               </div>
 
             </div>
           </Section>
+
+          {/* Projects table — software-dev only */}
+          {role.id === "software-dev" && (
+            <Section>
+              <H2>Projects</H2>
+              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 10.5, marginTop: 8 }}>
+                <thead>
+                  <tr style={{ borderBottom: `1px solid ${RULE}` }}>
+                    <th style={{ textAlign: "left", padding: "4px 8px 4px 0", color: BLACK, fontWeight: 700, width: "28%" }}>Project</th>
+                    <th style={{ textAlign: "left", padding: "4px 8px", color: BLACK, fontWeight: 700, width: "36%" }}>Stack</th>
+                    <th style={{ textAlign: "left", padding: "4px 0 4px 8px", color: BLACK, fontWeight: 700 }}>Highlights</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {([
+                    { project: "Mohan Cabs Fleet Platform", url: "https://www.mohancabs.in", stack: "Next.js, FastAPI, PostgreSQL, Docker, Traefik", highlights: "Real-time GPS, WhatsApp OTP, Razorpay, VPS deployed" },
+                    { project: "NPC Qatar Data Marketplace", url: "https://npc-qc-uat-marketplace.npc.qa", stack: "React, Express.js, Socket.io, Redis, PostgreSQL", highlights: "RAG chatbot, real-time collaboration, enterprise auth" },
+                    { project: "PIF Data Quality Platform", url: undefined, stack: "React, Express.js, PostgreSQL", highlights: "Cross-dept data sharing, automated quality validation" },
+                    { project: "U-Net Nucleus Segmentation", url: "https://www.kaggle.com/code/abinj12553/nuclei-segmentation-phenotypic-profiling-for-dru", stack: "PyTorch, scikit-image, Albumentations", highlights: "Dice 0.87 / IoU 0.79 / 93.5% recall on DSB 2018" },
+                  ] as { project: string; url?: string; stack: string; highlights: string }[]).map((row, i) => (
+                    <tr key={i} style={{ borderBottom: `1px solid ${RULE}` }}>
+                      <td style={{ padding: "5px 8px 5px 0", color: BODY, verticalAlign: "top" }}>
+                        {row.url ? <a href={row.url} style={{ color: BLUE }}>{row.project}</a> : row.project}
+                      </td>
+                      <td style={{ padding: "5px 8px", color: BODY, verticalAlign: "top" }}>{row.stack}</td>
+                      <td style={{ padding: "5px 0 5px 8px", color: BODY, verticalAlign: "top" }}>{row.highlights}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </Section>
+          )}
 
           {/* Education */}
           <Section gap={role.id === "linux-admin" ? 16 : 0}>

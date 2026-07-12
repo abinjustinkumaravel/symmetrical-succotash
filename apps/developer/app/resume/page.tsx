@@ -114,6 +114,21 @@ const ROLES: ResumeRole[] = [
     ],
   },
   {
+    id: "devops",
+    label: "Jr. DevOps Engineer",
+    title: "Jr. DevOps Engineer | Infrastructure & Deployment",
+    summary:
+      "MCA graduate (8.6 CGPA) with hands-on experience in containerized application deployment, Linux server administration, reverse proxy configuration, and cloud infrastructure management. Deployed and maintained multi-service production stacks across VPS and GCP environments using Docker, Docker Compose, Traefik, and Nginx. Comfortable working in the Linux CLI, managing service health, troubleshooting infrastructure issues, and maintaining deployment documentation. Eager to grow into a full DevOps role with structured mentorship and production exposure.",
+    competencies: [
+      { label: "Containerisation", value: "Docker, Docker Compose - multi-service stack setup, container networking, volume management, health monitoring, troubleshooting" },
+      { label: "Reverse Proxy & Networking", value: "Traefik (automatic SSL, routing), Nginx (reverse proxy, load balancing, static serving)" },
+      { label: "Source Control", value: "Git, GitHub - branching, pull requests, version management across multiple projects" },
+      { label: "Operating Systems", value: "Ubuntu Linux - CLI administration, service management, user/permission management, SSH configuration, firewall setup" },
+      { label: "Cloud", value: "GCP - VM setup, environment configuration, production deployment, uptime monitoring" },
+      { label: "Security & Access Control", value: "IP whitelisting, JWT authentication, Redis session management, HTTP-only cookies, role-based access control, SSL enforcement" },
+    ],
+  },
+  {
     id: "cv-engineer",
     label: "Computer Vision Engineer",
     title: "Computer Vision Engineer | ML & Deep Learning",
@@ -246,6 +261,14 @@ function AdminPanel({
 
 /* ── experience bullets per role ────────────────────────────────── */
 function AahrbitxBullets({ roleId }: { roleId: string }) {
+  if (roleId === "devops") return <>
+    <Bullet value={<><a href="https://www.mohancabs.in" style={{ color: BLUE }}>Mohan Cabs Fleet Platform</a> - Deployed a multi-service production stack on a self-hosted VPS using Docker Compose + Traefik with automatic SSL, real-time GPS, WhatsApp Business API integration, and Razorpay payment gateway. Managed ongoing server health, restarts, and configuration updates.</>} />
+    <Bullet value={<><a href="https://github.com/abinjustinkumaravel/IRSFQLLMS" style={{ color: BLUE }}>IRSQLLMS (AI Knowledge Engine)</a> - Containerized and deployed a full AI stack (FastAPI backend, Next.js frontend, PostgreSQL, ChromaDB, Nginx) using Docker Compose - managing service orchestration, networking, and production configuration end-to-end.</>} />
+    <Bullet value={<><a href="https://www.altraders.in" style={{ color: BLUE }}>AL Traders</a>, <a href="https://www.pommicaters.in" style={{ color: BLUE }}>Pommi Caterers</a>, <a href="https://www.butterbytes.in" style={{ color: BLUE }}>Butterbyte&apos;s</a> - Managed deployment pipelines and hosting configuration for multiple client web applications across VPS and Netlify environments.</>} />
+    <Bullet value="Maintained deployment runbooks, system documentation, and incident logs across all client infrastructure." />
+    <Bullet value="Sole responsibility for server hardening, SSH configuration, firewall rules, DNS management, and SSL certificate maintenance across all deployments." />
+  </>;
+
   if (roleId === "software-dev") return <>
     <Bullet value={<><a href="https://www.mohancabs.in" style={{ color: BLUE }}>Mohan Cabs</a> - Built a multi-role fleet management platform with real-time GPS tracking, WhatsApp OTP automation via WhatsApp Business API, and Razorpay payment integration. Deployed on VPS using Docker + Traefik with full production configuration.</>} />
     <Bullet value={<><a href="https://www.altraders.in" style={{ color: BLUE }}>AL Traders</a> - Built a full e-commerce catalog platform for a retail client.</>} />
@@ -296,6 +319,15 @@ function AahrbitxBullets({ roleId }: { roleId: string }) {
 }
 
 function InfaworxBullets({ roleId }: { roleId: string }) {
+  if (roleId === "devops") return <>
+    <Bullet value="Deployed and managed application infrastructure on Google Cloud Platform (GCP) - VM configuration, service deployment, environment setup, and production monitoring." />
+    <Bullet value="Configured and maintained authentication and session infrastructure: Redis session management, HTTP-only cookies, JWT tokens, and IP whitelisting across live government platforms." />
+    <Bullet value="Diagnosed and resolved infrastructure-level issues in production - service failures, configuration errors, and network issues - under real enterprise delivery timelines." />
+    <Bullet value="Used Git/GitHub for source code management and version control across all three projects." />
+    <Bullet value="Used Jira and ServiceNow for incident tracking, change management, and cross-team coordination." />
+    <Bullet value="Maintained deployment documentation and configuration records across all projects." />
+  </>;
+
   if (roleId === "software-dev") return <>
     <Bullet value={<><a href="https://npc-qc-uat-marketplace.npc.qa" style={{ color: BLUE }}>NPC Qatar - Data Marketplace</a>: Built an enterprise data marketplace platform with a RAG-based chatbot for intelligent data product recommendations, real-time team collaboration via Socket.io, and session-based authentication middleware.</>} />
     <Bullet value="PIF - Data Sharing & Quality Platform: Developed a cross-department data sharing and quality management platform (React + Express.js) with automated quality validation workflows." />
@@ -471,11 +503,18 @@ export default function ResumePage() {
           </Section>
 
           {/* Technical Stack — hidden for software-dev (covered by competencies) */}
-          {role.id !== "software-dev" && (
+          {!["software-dev"].includes(role.id) && (
             <Section>
               <H2>Technical Stack</H2>
               <div style={{ marginTop: 8 }}>
-                {role.id === "linux-admin" ? (
+                {role.id === "devops" ? (
+                  <>
+                    <Bullet label="Languages & Scripting" value="Python, Bash, JavaScript, SQL" />
+                    <Bullet label="Databases" value="PostgreSQL, Redis, SQLite - setup, configuration, basic administration" />
+                    <Bullet label="Tools" value="Git, Jira, ServiceNow, Linux CLI" />
+                    <Bullet label="Learning" value="Jenkins (CI/CD), Ansible (configuration management), Prometheus & Grafana (monitoring)" />
+                  </>
+                ) : role.id === "linux-admin" ? (
                   <>
                     <Bullet label="Languages & Scripting" value="Bash, Python (automation scripts), SQL" />
                     <Bullet label="Infrastructure & Proxy" value="Traefik (automatic SSL), Nginx (reverse proxy, load balancing), Docker, Docker Compose, systemd, SSH, UFW" />
@@ -506,6 +545,8 @@ export default function ResumePage() {
                   <strong style={{ fontSize: 11.5, color: BLACK }}>
                     {role.id === "linux-admin"
                       ? "Self-Hosted Linux Infrastructure - Aahrbitx Client Projects"
+                      : role.id === "devops"
+                      ? "Independent DevOps & Software Consultant - Aahrbitx"
                       : "Independent Consultant - aahrbitx"}
                   </strong>
                   <span style={{ fontSize: 10.5, color: BODY, fontStyle: "italic", whiteSpace: "nowrap", marginLeft: 8 }}>2023 – Present</span>
@@ -529,7 +570,7 @@ export default function ResumePage() {
               <div style={{ marginBottom: 14 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 2 }}>
                   <strong style={{ fontSize: 11.5, color: BLACK }}>
-                  {role.id === "linux-admin" || role.id === "software-dev"
+                  {["linux-admin", "software-dev", "devops"].includes(role.id)
                     ? "Software Developer Trainee - Infaworx Data Management Pvt Ltd"
                     : "Data Integration Developer Trainee - Infaworx Data Management Pvt Ltd"}
                 </strong>
@@ -540,6 +581,8 @@ export default function ResumePage() {
                     ? "Worked on enterprise application deployment and infrastructure across three government and financial sector projects."
                     : role.id === "software-dev"
                     ? "Delivered three enterprise software projects as a full-stack developer across government and financial sector clients."
+                    : role.id === "devops"
+                    ? "Worked on infrastructure deployment and application delivery across three enterprise government and financial sector projects."
                     : "Delivered three enterprise data projects across NPC Qatar, PIF, and SDB as a full-stack developer."}
                 </p>
                 <InfaworxBullets roleId={role.id} />
@@ -551,7 +594,9 @@ export default function ResumePage() {
                   <strong style={{ fontSize: 11.5, color: BLACK }}>Business Development Associate - AccioJob</strong>
                   <span style={{ fontSize: 10.5, color: BODY, fontStyle: "italic", whiteSpace: "nowrap", marginLeft: 8 }}>Aug 2024 – Sep 2024</span>
                 </div>
-                {role.id === "software-dev" ? (<>
+                {role.id === "devops" ? (
+                  <Bullet value="Developed strong communication, coordination, and systematic follow-up habits in a fast-paced environment - directly applicable to cross-team collaboration in a DevOps role." />
+                ) : role.id === "software-dev" ? (<>
                   <Bullet value="Managed a live B2B/B2C sales pipeline using CRM tools - developing strong client communication, follow-up, and coordination skills." />
                   <Bullet value="Gained firsthand exposure to how businesses evaluate and invest in software solutions - directly informs how I scope and prioritise features when building products." />
                 </>) : (<>
@@ -566,37 +611,49 @@ export default function ResumePage() {
             </div>
           </Section>
 
-          {/* Projects table — software-dev only */}
-          {role.id === "software-dev" && (
-            <Section>
-              <H2>Projects</H2>
-              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 10.5, marginTop: 8 }}>
-                <thead>
-                  <tr style={{ borderBottom: `1px solid ${RULE}` }}>
-                    <th style={{ textAlign: "left", padding: "4px 8px 4px 0", color: BLACK, fontWeight: 700, width: "28%" }}>Project</th>
-                    <th style={{ textAlign: "left", padding: "4px 8px", color: BLACK, fontWeight: 700, width: "36%" }}>Stack</th>
-                    <th style={{ textAlign: "left", padding: "4px 0 4px 8px", color: BLACK, fontWeight: 700 }}>Highlights</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {([
-                    { project: "Mohan Cabs Fleet Platform", url: "https://www.mohancabs.in", stack: "Next.js, FastAPI, PostgreSQL, Docker, Traefik", highlights: "Real-time GPS, WhatsApp OTP, Razorpay, VPS deployed" },
-                    { project: "NPC Qatar Data Marketplace", url: "https://npc-qc-uat-marketplace.npc.qa", stack: "React, Express.js, Socket.io, Redis, PostgreSQL", highlights: "RAG chatbot, real-time collaboration, enterprise auth" },
-                    { project: "PIF Data Quality Platform", url: undefined, stack: "React, Express.js, PostgreSQL", highlights: "Cross-dept data sharing, automated quality validation" },
-                    { project: "U-Net Nucleus Segmentation", url: "https://www.kaggle.com/code/abinj12553/nuclei-segmentation-phenotypic-profiling-for-dru", stack: "PyTorch, scikit-image, Albumentations", highlights: "Dice 0.87 / IoU 0.79 / 93.5% recall on DSB 2018" },
-                  ] as { project: string; url?: string; stack: string; highlights: string }[]).map((row, i) => (
-                    <tr key={i} style={{ borderBottom: `1px solid ${RULE}` }}>
-                      <td style={{ padding: "5px 8px 5px 0", color: BODY, verticalAlign: "top" }}>
-                        {row.url ? <a href={row.url} style={{ color: BLUE }}>{row.project}</a> : row.project}
-                      </td>
-                      <td style={{ padding: "5px 8px", color: BODY, verticalAlign: "top" }}>{row.stack}</td>
-                      <td style={{ padding: "5px 0 5px 8px", color: BODY, verticalAlign: "top" }}>{row.highlights}</td>
+          {/* Projects table — software-dev and devops */}
+          {(role.id === "software-dev" || role.id === "devops") && (() => {
+            const rows = role.id === "devops"
+              ? [
+                  { project: "Mohan Cabs Fleet Platform", url: "https://www.mohancabs.in", stack: "Docker, Traefik, VPS, PostgreSQL", highlights: "Self-hosted Linux VPS, auto SSL, multi-service orchestration" },
+                  { project: "IRSQLLMS AI Engine", url: "https://github.com/abinjustinkumaravel/IRSFQLLMS", stack: "Docker Compose, Nginx, FastAPI, ChromaDB", highlights: "Full containerized stack, production deployment" },
+                  { project: "NPC Qatar Data Marketplace", url: "https://npc-qc-uat-marketplace.npc.qa", stack: "GCP, Docker, Redis, PostgreSQL", highlights: "Cloud VM deployment, session management, auth pipeline" },
+                  { project: "PIF Data Quality Platform", url: undefined, stack: "GCP, Express.js, PostgreSQL", highlights: "GCP infrastructure, environment configuration" },
+                ] as { project: string; url?: string; stack: string; highlights: string }[]
+              : [
+                  { project: "Mohan Cabs Fleet Platform", url: "https://www.mohancabs.in", stack: "Next.js, FastAPI, PostgreSQL, Docker, Traefik", highlights: "Real-time GPS, WhatsApp OTP, Razorpay, VPS deployed" },
+                  { project: "NPC Qatar Data Marketplace", url: "https://npc-qc-uat-marketplace.npc.qa", stack: "React, Express.js, Socket.io, Redis, PostgreSQL", highlights: "RAG chatbot, real-time collaboration, enterprise auth" },
+                  { project: "PIF Data Quality Platform", url: undefined, stack: "React, Express.js, PostgreSQL", highlights: "Cross-dept data sharing, automated quality validation" },
+                  { project: "U-Net Nucleus Segmentation", url: "https://www.kaggle.com/code/abinj12553/nuclei-segmentation-phenotypic-profiling-for-dru", stack: "PyTorch, scikit-image, Albumentations", highlights: "Dice 0.87 / IoU 0.79 / 93.5% recall on DSB 2018" },
+                ] as { project: string; url?: string; stack: string; highlights: string }[];
+            return (
+              <Section>
+                <H2>Projects</H2>
+                <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 10.5, marginTop: 8 }}>
+                  <thead>
+                    <tr style={{ borderBottom: `1px solid ${RULE}` }}>
+                      <th style={{ textAlign: "left", padding: "4px 8px 4px 0", color: BLACK, fontWeight: 700, width: "28%" }}>Project</th>
+                      <th style={{ textAlign: "left", padding: "4px 8px", color: BLACK, fontWeight: 700, width: "36%" }}>Stack</th>
+                      <th style={{ textAlign: "left", padding: "4px 0 4px 8px", color: BLACK, fontWeight: 700 }}>
+                        {role.id === "devops" ? "DevOps Highlights" : "Highlights"}
+                      </th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </Section>
-          )}
+                  </thead>
+                  <tbody>
+                    {rows.map((row, i) => (
+                      <tr key={i} style={{ borderBottom: `1px solid ${RULE}` }}>
+                        <td style={{ padding: "5px 8px 5px 0", color: BODY, verticalAlign: "top" }}>
+                          {row.url ? <a href={row.url} style={{ color: BLUE }}>{row.project}</a> : row.project}
+                        </td>
+                        <td style={{ padding: "5px 8px", color: BODY, verticalAlign: "top" }}>{row.stack}</td>
+                        <td style={{ padding: "5px 0 5px 8px", color: BODY, verticalAlign: "top" }}>{row.highlights}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </Section>
+            );
+          })()}
 
           {/* Education */}
           <Section gap={role.id === "linux-admin" ? 16 : 0}>
@@ -607,14 +664,19 @@ export default function ResumePage() {
             </div>
           </Section>
 
-          {/* Additional — Linux Admin only */}
-          {role.id === "linux-admin" && (
+          {/* Additional — Linux Admin and DevOps */}
+          {(role.id === "linux-admin" || role.id === "devops") && (
             <Section gap={0}>
               <H2>Additional</H2>
               <div style={{ marginTop: 8 }}>
-                <Bullet value="Willing to provide on-call, after-hours, or rotational support as required - comfortable with 24x7 production environments." />
-                <Bullet value="Actively learning cloud fundamentals (GCP hands-on), networking concepts, and security best practices." />
-                <Bullet value="Open to pursuing RHCSA / AWS Fundamentals certification as part of career growth." />
+                <Bullet value="Comfortable with on-call and after-hours support in production environments." />
+                {role.id === "linux-admin" ? (<>
+                  <Bullet value="Actively learning cloud fundamentals (GCP hands-on), networking concepts, and security best practices." />
+                  <Bullet value="Open to pursuing RHCSA / AWS Fundamentals certification as part of career growth." />
+                </>) : (<>
+                  <Bullet value="Actively learning Jenkins CI/CD pipelines, Ansible configuration management, and Prometheus/Grafana monitoring." />
+                  <Bullet value="Open to RHCSA / AWS / GCP certification as part of career growth." />
+                </>)}
               </div>
             </Section>
           )}

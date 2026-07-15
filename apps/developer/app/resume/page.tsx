@@ -143,6 +143,14 @@ const ROLES: ResumeRole[] = [
       { label: "MLOps & Deployment", value: "Docker, Docker Compose, FastAPI (model serving), GCP, Linux CLI, Git" },
     ],
   },
+  {
+    id: "ba",
+    label: "Business Analyst",
+    title: "Business Analyst",
+    summary:
+      "Detail-oriented and analytical MCA graduate seeking a Business Analyst role to apply strong skills in requirement gathering, business process analysis, documentation, and stakeholder coordination. Hands-on experience preparing functional specifications and coordinating with development teams through freelance and internship projects.",
+    competencies: [],
+  },
 ];
 
 /* ── localStorage key ───────────────────────────────────────────── */
@@ -308,6 +316,15 @@ function AahrbitxBullets({ roleId }: { roleId: string }) {
     <Bullet value={<>Client sites: <a href="https://www.altraders.in" style={{ color: BLUE }}>AL Traders</a> (e-commerce product catalog), <a href="https://www.pommicaters.in" style={{ color: BLUE }}>Pommi Caterers</a> (Netlify), <a href="https://www.butterbytes.in" style={{ color: BLUE }}>Butterbyte&apos;s</a>, <a href="https://www.enticeinnovations.com" style={{ color: BLUE }}>Entice Innovations</a>.</>} />
   </>;
 
+  if (roleId === "ba") return <>
+    <Bullet value="Gathered requirements directly from clients and prepared Business Requirement Documents (BRD) and Functional Requirement Specifications (FRS)." />
+    <Bullet value="Analyzed existing business processes and recommended improvements." />
+    <Bullet value="Prepared process flow diagrams, user stories, and use cases for each project." />
+    <Bullet value="Assisted in User Acceptance Testing (UAT) and validated delivered solutions with clients." />
+    <Bullet value="Prepared project documentation and reports across engagements." />
+    <Bullet value={<>Projects: <a href="https://www.mohancabs.in" style={{ color: BLUE }}>Mohan Cabs</a> (fleet management platform), IRSQLLMS (enterprise AI knowledge system), <a href="https://www.altraders.in" style={{ color: BLUE }}>AL Traders</a>, <a href="https://www.pommicaters.in" style={{ color: BLUE }}>Pommi Caterers</a>, <a href="https://www.butterbytes.in" style={{ color: BLUE }}>Butterbyte&apos;s</a>, <a href="https://www.enticeinnovations.com" style={{ color: BLUE }}>Entice Innovations</a>.</>} />
+  </>;
+
   // ai-engineer (default)
   return <>
     <Bullet value="Delivering end-to-end AI and software solutions for clients across industries - from LLM-powered tools and RAG pipelines to full-stack fleet management systems and e-commerce platforms." />
@@ -358,6 +375,12 @@ function InfaworxBullets({ roleId }: { roleId: string }) {
     <Bullet value="SDB - deployed on-premises PHI3 LLM middleware across a multi-level VM infrastructure with zero cloud dependency; coordinated cross-system communication between classification service and data migration pipeline." />
     <Bullet value={<><a href="https://npc-qc-uat-marketplace.npc.qa" style={{ color: BLUE }}>NPC Qatar</a> - data marketplace with real-time internal collaboration (Socket.io), automatic session-expiry re-login middleware, and RAG-based chatbot for data product discovery.</>} />
     <Bullet value="PIF - data sharing and data quality management platform (React + Express.js) with automated quality validation workflows." />
+  </>;
+
+  if (roleId === "ba") return <>
+    <Bullet value="Worked on three enterprise data projects: NPC Qatar, PIF, SDB." />
+    <Bullet value="Built data marketplace, data sharing & quality platform, and classification middleware." />
+    <Bullet value="Coordinated with teams on requirements, authentication workflows, and cloud deployment (GCP)." />
   </>;
 
   return <>
@@ -486,24 +509,30 @@ export default function ResumePage() {
 
           {/* Professional Summary */}
           <Section>
-            <H2>Professional Summary</H2>
+            <H2>{role.id === "ba" ? "Career Objective" : "Professional Summary"}</H2>
             <p style={{ fontSize: 11, color: BODY, lineHeight: 1.75, margin: "8px 0 0", textAlign: "justify" }}>
               {role.summary}
             </p>
           </Section>
 
-          {/* Core Competencies */}
+          {/* Core Competencies / Skills */}
           <Section>
-            <H2>Core Competencies</H2>
+            <H2>{role.id === "ba" ? "Skills" : "Core Competencies"}</H2>
             <div style={{ marginTop: 8 }}>
-              {role.competencies.map(c => (
-                <Bullet key={c.label} label={c.label} value={c.value} />
-              ))}
+              {role.id === "ba" ? (
+                <p style={{ fontSize: 11, color: BODY, lineHeight: 1.65, margin: 0 }}>
+                  Requirement Gathering | Stakeholder Coordination | MS Office (Excel, Word, PowerPoint) | Analytical &amp; Problem-Solving | Verbal &amp; Written Communication
+                </p>
+              ) : (
+                role.competencies.map(c => (
+                  <Bullet key={c.label} label={c.label} value={c.value} />
+                ))
+              )}
             </div>
           </Section>
 
-          {/* Technical Stack — hidden for software-dev (covered by competencies) */}
-          {!["software-dev"].includes(role.id) && (
+          {/* Technical Stack — hidden for software-dev and ba */}
+          {!["software-dev", "ba"].includes(role.id) && (
             <Section>
               <H2>Technical Stack</H2>
               <div style={{ marginTop: 8 }}>
@@ -547,6 +576,8 @@ export default function ResumePage() {
                       ? "Self-Hosted Linux Infrastructure - Aahrbitx Client Projects"
                       : role.id === "devops"
                       ? "Independent DevOps & Software Consultant - Aahrbitx"
+                      : role.id === "ba"
+                      ? "Freelance Business Analyst & Developer - aahrbitx"
                       : "Independent Consultant - aahrbitx"}
                   </strong>
                   <span style={{ fontSize: 10.5, color: BODY, fontStyle: "italic", whiteSpace: "nowrap", marginLeft: 8 }}>2023 – Present</span>
@@ -583,6 +614,8 @@ export default function ResumePage() {
                     ? "Delivered three enterprise software projects as a full-stack developer across government and financial sector clients."
                     : role.id === "devops"
                     ? "Worked on infrastructure deployment and application delivery across three enterprise government and financial sector projects."
+                    : role.id === "ba"
+                    ? "Worked on three enterprise data projects across NPC Qatar, PIF, and SDB."
                     : "Delivered three enterprise data projects across NPC Qatar, PIF, and SDB as a full-stack developer."}
                 </p>
                 <InfaworxBullets roleId={role.id} />
@@ -594,7 +627,11 @@ export default function ResumePage() {
                   <strong style={{ fontSize: 11.5, color: BLACK }}>Business Development Associate - AccioJob</strong>
                   <span style={{ fontSize: 10.5, color: BODY, fontStyle: "italic", whiteSpace: "nowrap", marginLeft: 8 }}>Aug 2024 – Sep 2024</span>
                 </div>
-                {role.id === "devops" ? (
+                {role.id === "ba" ? (<>
+                  <Bullet value="Managed B2B/B2C sales pipeline using CRM tools." />
+                  <Bullet value="Conducted market research on leads and prospects to support sales strategy." />
+                  <Bullet value="Gained exposure to client requirement discovery and stakeholder communication." />
+                </>) : role.id === "devops" ? (
                   <Bullet value="Developed strong communication, coordination, and systematic follow-up habits in a fast-paced environment - directly applicable to cross-team collaboration in a DevOps role." />
                 ) : role.id === "software-dev" ? (<>
                   <Bullet value="Managed a live B2B/B2C sales pipeline using CRM tools - developing strong client communication, follow-up, and coordination skills." />

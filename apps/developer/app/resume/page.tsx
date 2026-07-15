@@ -480,7 +480,7 @@ export default function ResumePage() {
       <div id="resume" style={{ maxWidth: 800, margin: "0 auto", fontFamily: "'Arial', sans-serif" }}>
 
         {/* ── Page 1 ── */}
-        <div className="resume-page">
+        <div className="resume-page" style={role.id === "ba" ? { minHeight: "auto" } : undefined}>
 
           {/* Header */}
           <div style={{ marginBottom: 18 }}>
@@ -584,13 +584,47 @@ export default function ResumePage() {
                 </div>
                 <AahrbitxBullets roleId={role.id} />
               </div>
+
+              {/* ba: include remaining experience directly on page 1 */}
+              {role.id === "ba" && (<>
+                <div style={{ marginBottom: 14, marginTop: 14 }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 2 }}>
+                    <strong style={{ fontSize: 11.5, color: BLACK }}>Data Integration Developer Trainee - Infaworx Data Management Pvt Ltd</strong>
+                    <span style={{ fontSize: 10.5, color: BODY, fontStyle: "italic", whiteSpace: "nowrap", marginLeft: 8 }}>Feb 2025 – Oct 2025</span>
+                  </div>
+                  <p style={{ fontSize: 11, color: BODY, fontStyle: "italic", margin: "0 0 6px", lineHeight: 1.5 }}>
+                    Worked on three enterprise data projects across NPC Qatar, PIF, and SDB.
+                  </p>
+                  <InfaworxBullets roleId="ba" />
+                </div>
+                <div style={{ marginBottom: 6 }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 2 }}>
+                    <strong style={{ fontSize: 11.5, color: BLACK }}>Business Development Associate - AccioJob</strong>
+                    <span style={{ fontSize: 10.5, color: BODY, fontStyle: "italic", whiteSpace: "nowrap", marginLeft: 8 }}>Aug 2024 – Sep 2024</span>
+                  </div>
+                  <Bullet value="Managed B2B/B2C sales pipeline using CRM tools." />
+                  <Bullet value="Conducted market research on leads and prospects to support sales strategy." />
+                  <Bullet value="Gained exposure to client requirement discovery and stakeholder communication." />
+                </div>
+              </>)}
             </div>
           </Section>
 
+          {/* ba: Education on page 1 */}
+          {role.id === "ba" && (
+            <Section gap={0}>
+              <H2>Education</H2>
+              <div style={{ marginTop: 8 }}>
+                <Bullet value={<>Master of Computer Applications (MCA) - SRM Institute of Science and Technology - <strong>CGPA: 8.6</strong> (2024 – 2026)</>} />
+                <Bullet value={<>Bachelor of Computer Applications (BCA), Data Science - SRM Institute of Science and Technology - <strong>CGPA: 8.5</strong> (2021 – 2024)</>} />
+              </div>
+            </Section>
+          )}
+
         </div>
 
-        {/* ── Page 2 ── */}
-        <div className="resume-page">
+        {/* ── Page 2 — not rendered for ba ── */}
+        {role.id !== "ba" && <div className="resume-page">
 
           {/* Professional Experience — Page 2 portion */}
           <Section>
@@ -718,7 +752,7 @@ export default function ResumePage() {
             </Section>
           )}
 
-        </div>
+        </div>}
 
       </div>
 

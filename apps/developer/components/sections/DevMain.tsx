@@ -118,33 +118,67 @@ function Tag({ label }: { label: string }) {
 /* ─── data ─────────────────────────────────────────────────────── */
 
 const STATS = [
-  { value: "300+", label: "DSA Problems" },
+  { value: "1.5+", label: "Years Experience" },
   { value: "8.6",  label: "MCA CGPA" },
-  { value: "3+",   label: "Years Active" },
-  { value: "3",    label: "Enterprise Clients" },
+  { value: "6+",   label: "AI & Software Projects" },
+  { value: "4",    label: "Client Projects" },
 ];
 
 const EXPERIENCE = [
   {
-    period: "2023 – Present",
-    role: "Independent Consultant",
-    company: "aahrbitx",
-    desc: "End-to-end software and AI solutions — fleet management systems, e-commerce platforms, and LLM-powered tools. Independent ML research: U-Net nucleus segmentation pipeline on 2018 Data Science Bowl dataset (Dice 0.87 / IoU 0.79) with downstream morphological feature extraction applicable to drug discovery screening. Clients: Pommi Caterers, AL Traders, Butterbyte's, Entice Innovations, Mohan Cabs.",
-    tags: ["Next.js", "FastAPI", "Docker", "WhatsApp API", "Razorpay", "LLM", "PyTorch"],
+    period: "Nov 2025 – Present",
+    role: "Machine Learning Engineer",
+    company: "Entice Innovations",
+    desc: "Building and deploying AI/ML and full-stack solutions across product and client projects. Built an in-house secure single-tenant RAG SaaS platform using Qwen2.5-3B quantized GGUF models, llama-cpp-python, hybrid BM25 + dense retrieval, ChromaDB, cross-encoder reranking, and FastAPI. Delivered client projects including Mohan Cabs (fleet management with real-time GPS and Razorpay), AL Traders (e-commerce), Pommi Caterers, and Butterbyte's.",
+    tags: [
+      "Python",
+      "FastAPI",
+      "RAG",
+      "LLM",
+      "PyTorch",
+      "Docker",
+      "GCP"
+    ],
   },
   {
-    period: "Feb 2025 – Oct 2025",
-    role: "Data Integration Developer Trainee",
-    company: "Infaworx",
-    desc: "Full-stack developer at Infaworx Data Management Pvt Ltd. Delivered three enterprise projects: NPC Qatar — data marketplace with RAG chatbot and real-time collaboration (Socket.io); PIF — data sharing and data quality platform (React + Express.js); SDB — on-premises LLM classification middleware (PHI3) for automated confidentiality detection. Deployed on GCP.",
-    tags: ["React/Next.js", "FastAPI", "RAG", "Redis", "GCP", "PostgreSQL"],
+  period: "Feb 2025 – Oct 2025",
+  role: "Full Stack Engineer",
+  company: "Infaworx Data Management Pvt Ltd",
+  desc: "Built and delivered enterprise software and data platforms for clients including NPC Qatar and PIF. Developed the NPC data marketplace with RAG-based data discovery, real-time collaboration, and Informatica synchronization. Built PIF data sharing and data quality workflows with automated validation and Informatica integration. Worked across frontend, backend, authentication, APIs, and GCP-based deployments.",
+  tags: [
+    "React",
+    "Node.js",
+    "Python",
+    "FastAPI",
+    "RAG",
+    "PostgreSQL",
+    "GCP"
+  ],
+},
+  {
+    period: "Mar 2023 – Jan 2025",
+    role: "Founder & AI/ML Engineer",
+    company: "AahrbitX",
+    desc: "Founded and led a small engineering team delivering software and AI solutions across multiple client projects. Worked on full-stack applications, AI/ML development, and independent machine learning projects including a U-Net nucleus segmentation pipeline using PyTorch, achieving 0.87 Dice and 0.79 IoU with downstream morphological feature extraction.",
+    tags: [
+      "Python",
+      "PyTorch",
+      "Machine Learning",
+      "Next.js",
+      "FastAPI",
+      "Docker"
+    ],
   },
   {
     period: "Aug 2024 – Sep 2024",
     role: "Business Development Associate",
     company: "AccioJob",
-    desc: "Managed B2B/B2C sales pipeline with CRM tools. Gained firsthand insight into how businesses evaluate and pay for software — informs how I scope and prioritise features.",
-    tags: ["CRM", "B2B/B2C Sales", "Pipeline Management"],
+    desc: "Managed B2B/B2C sales pipelines using CRM tools and worked with prospective customers through the sales process. Gained experience in customer discovery, requirements understanding, and business-oriented product communication.",
+    tags: [
+      "CRM",
+      "B2B/B2C Sales",
+      "Pipeline Management"
+    ],
   },
 ];
 
@@ -204,8 +238,8 @@ const PROJECTS: Project[] = [
     badge: "ENTERPRISE RAG · LOCAL LLM · SECURE",
     gradient: "linear-gradient(135deg, #0E0B1F 0%, #1C1245 50%, #28196A 100%)",
     tags: ["Python", "FastAPI", "Docker Compose"],
-    desc: "Secure single-tenant enterprise AI knowledge engine. Qwen2.5-3B quantized to Q4_K_M GGUF for 10–18 tok/s CPU inference — no GPU required. Hybrid BM25 + dense vector retrieval (BAAI/bge-m3, 1024-dim) with 3-layer security: local license middleware, JWT auth, and pre-retrieval ACL filters. Zero external data exposure by design.",
-    impact: "10-18 TOK/S CPU INFERENCE · 3-LAYER SECURITY · ZERO DATA LEAKAGE",
+    desc: "Secure single-tenant enterprise AI knowledge engine. Qwen2.5-3B quantized to Q4_K_M GGUF for 10–18 tok/s CPU inference — no GPU required. Hybrid BM25 + dense vector retrieval using BAAI/bge-m3 with 1024-dimensional embeddings, cross-encoder reranking, and 3-layer security: local license middleware, JWT authentication, and pre-retrieval ACL filters. Zero external data exposure by design.",
+    impact: "10–18 TOK/S CPU INFERENCE · HYBRID RETRIEVAL · 3-LAYER SECURITY",
     url: "https://github.com/abinjustinkumaravel/IRSFQLLMS",
   },
   {
@@ -214,21 +248,12 @@ const PROJECTS: Project[] = [
     badge: "DEEP LEARNING · BIOIMAGE · DRUG DISCOVERY",
     gradient: "linear-gradient(135deg, #031A14 0%, #0A4030 50%, #0E6B4A 100%)",
     tags: ["PyTorch", "U-Net", "scikit-image", "Albumentations"],
-    desc: "End-to-end deep learning pipeline for automated cell nucleus segmentation on the 2018 Data Science Bowl microscopy dataset (Broad Institute BBBC). U-Net with ResNet34 encoder (ImageNet-pretrained) trained with combined Dice + BCE loss. Watershed post-processing to separate touching nuclei instances. Phenotypic profiling module using skimage.measure.regionprops extracts per-image morphological features (nucleus count, area, eccentricity, solidity, intensity) — directly analogous to compound screening workflows in drug discovery. Domain-specific augmentations via Albumentations (elastic deformation, illumination jitter, flips) handle staining and imaging variability.",
+    desc: "End-to-end deep learning pipeline for automated cell nucleus segmentation on the 2018 Data Science Bowl microscopy dataset. U-Net with ResNet34 encoder (ImageNet-pretrained) trained with combined Dice + BCE loss. Watershed post-processing separates touching nuclei instances. A phenotypic profiling module using skimage.measure.regionprops extracts nucleus count, area, eccentricity, solidity, and intensity features for downstream analysis. Domain-specific augmentations handle staining and imaging variability.",
     impact: "DICE 0.87 · IoU 0.79 · 93.5% RECALL · 82.4% PRECISION",
     url: "https://www.kaggle.com/code/abinj12553/nuclei-segmentation-phenotypic-profiling-for-dru",
   },
   {
     num: "07",
-    title: "YOLOv8 Asset Tracker",
-    badge: "COMPUTER VISION · REAL-TIME",
-    gradient: "linear-gradient(135deg, #1A0E00 0%, #3D1F00 50%, #7C3A00 100%)",
-    tags: ["Python", "Docker", "PyTorch"],
-    desc: "Local computer vision pipeline for real-time asset tracking. YOLOv8 inference on live camera feeds with NumPy and Pandas preprocessing of raw detection logs — structured bounding box metadata extraction and downstream analytics pipeline. Containerized with Docker for consistent deployment across environments.",
-    impact: "REAL-TIME DETECTION · STRUCTURED METADATA EXTRACTION",
-  },
-  {
-    num: "08",
     title: "AL Traders",
     badge: "E-COMMERCE · CLIENT DELIVERY",
     gradient: "linear-gradient(135deg, #0A1410 0%, #1A2D25 50%, #243D33 100%)",
@@ -238,7 +263,7 @@ const PROJECTS: Project[] = [
     url: "https://www.altraders.in",
   },
   {
-    num: "09",
+    num: "08",
     title: "Pommi Catering",
     badge: "STATIC SITE · NETLIFY",
     gradient: "linear-gradient(135deg, #141008 0%, #2D2010 50%, #3D2E16 100%)",
@@ -246,6 +271,16 @@ const PROJECTS: Project[] = [
     desc: "Static business website for Pommi Catering built with vanilla HTML, CSS, and JavaScript. Clean presentation of services, menu, and contact details. Deployed and hosted on Netlify with fast global CDN delivery.",
     impact: "NETLIFY · STATIC · GLOBAL CDN HOSTED",
     url: "https://www.pommicaters.in",
+  },
+  {
+    num: "09",
+    title: "MUSKMELON",
+    badge: "MACHINE LEARNING · PYTHON · OPEN SOURCE",
+    gradient: "linear-gradient(135deg, #120D08 0%, #2D1D0F 50%, #4A3018 100%)",
+    tags: ["Python", "NumPy", "Gradient Descent", "PyPI"],
+    desc: "Machine learning library built from scratch and published as a pip-installable Python package. Implements gradient descent-based linear regression, model training and prediction, model persistence with save/load functionality, and standard Python package distribution through Twine.",
+    impact: "FROM-SCRATCH ML · GRADIENT DESCENT · PYPI PUBLISHED",
+    url: "https://pypi.org/project/muskmelon",
   },
 ];
 
@@ -585,12 +620,16 @@ export default function DevMain() {
             fontFamily: "var(--font-body)", fontSize: 13, color: "var(--text-2)",
             lineHeight: 1.85, maxWidth: 620, marginBottom: 32,
           }}>
-            I build AI systems that run in production — not demos. Specialising in LLM pipelines,
-            RAG architectures, and Python-first backends, I design systems where retrieval is precise,
-            inference is fast, and the API never becomes the bottleneck. From hybrid BM25 + vector search
-            with cross-encoder reranking to on-premises LLM deployment with zero data leakage — I care
-            deeply about how the stack performs under real load. Currently pursuing MCA at SRM (8.6 CGPA)
-            and taking on consulting work through <em>aahrbitx</em>.
+            I build production AI systems across the full inference and retrieval pipeline.
+            My work spans quantized local LLM inference with llama-cpp-python and GGUF models, hybrid
+            BM25 + dense vector retrieval, embedding-based search, ChromaDB vector storage, and
+            cross-encoder reranking for RAG systems. I develop Python-first AI backends with FastAPI,
+            integrate JWT/RBAC authentication and Redis-based session management, and package systems
+            with Docker for deployment across local, VPS, and GCP environments. I focus on the
+            engineering problems behind production AI — retrieval quality, inference efficiency,
+            security, data isolation, and reliable API serving. Currently a Machine Learning Engineer
+            at <em>Entice Innovations</em>, with an MCA from SRM Institute of Science and Technology
+            (8.6 CGPA).
           </p>
         </Reveal>
       </div>
@@ -708,67 +747,138 @@ export default function DevMain() {
       </div>
 
       {/* ── DSA Stats ───────────────────────────────────────────── */}
-      <div className="dev-main-section" style={{ padding: "0 32px" }}>
-        <SectionTitle>Problem Solving</SectionTitle>
-        <Reveal>
-          <div style={{
-            background: "var(--bg-card)",
-            border: "1px solid var(--border)",
-            borderRadius: 7, padding: "22px 24px",
-            marginBottom: 32,
-          }}>
-            <div style={{ display: "flex", alignItems: "baseline", gap: 6, marginBottom: 2 }}>
-              <span style={{ fontFamily: "var(--font-heading)", fontSize: 52, fontWeight: 700, color: "var(--text)", lineHeight: 1 }}>300</span>
-              <span style={{ fontFamily: "var(--font-heading)", fontSize: 32, fontWeight: 700, color: "var(--text-3)", lineHeight: 1 }}>+</span>
-            </div>
-            <p style={{ fontFamily: "var(--font-mono)", fontSize: 9, color: "var(--text-3)", letterSpacing: "0.08em", marginBottom: 18 }}>
-              PROBLEMS SOLVED ACROSS PLATFORMS
-            </p>
-            <div className="dev-dsa-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
-              {[
-                { name: "LeetCode",  icon: <SiLeetcode size={13} />, count: "200+", url: "https://leetcode.com/u/abinjustinkumaravel/", topics: ["Arrays", "Dynamic Programming", "Trees & Graphs", "Binary Search"] },
-                { name: "HackerRank", icon: <SiHackerrank size={13} />, count: "100+", url: "https://www.hackerrank.com/profile/abinj2003", topics: ["Python 5★", "SQL 4★", "Problem Solving", "Data Structures"] },
-              ].map(p => (
-                <div key={p.name} style={{ border: "1px solid var(--border)", borderRadius: 6, padding: "12px 14px" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                      <span style={{ color: "var(--text-3)", display: "flex", alignItems: "center" }}>{p.icon}</span>
-                      <p style={{ fontFamily: "var(--font-mono)", fontSize: 8, color: "var(--text-3)", letterSpacing: "0.1em", margin: 0 }}>
-                        {p.name.toUpperCase()}
-                      </p>
-                    </div>
-                    <a
-                      href={p.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        fontFamily: "var(--font-mono)", fontSize: 7.5, letterSpacing: "0.08em",
-                        color: "var(--text-3)", textDecoration: "none", transition: "color 0.2s",
-                      }}
-                      onMouseEnter={e => (e.currentTarget.style.color = "var(--text)")}
-                      onMouseLeave={e => (e.currentTarget.style.color = "var(--text-3)")}
-                    >
-                      VISIT →
-                    </a>
-                  </div>
-                  <p style={{ fontFamily: "var(--font-heading)", fontSize: 24, fontWeight: 700, color: "var(--text)", lineHeight: 1, marginBottom: 8 }}>
-                    {p.count}
-                  </p>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
-                    {p.topics.map(t => (
-                      <span key={t} style={{
-                        fontFamily: "var(--font-mono)", fontSize: 8, letterSpacing: "0.04em",
-                        padding: "2px 6px", borderRadius: 3,
-                        border: "1px solid var(--border-2)", color: "var(--text-3)",
-                      }}>{t}</span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
+        <div className="dev-main-section" style={{ padding: "0 32px" }}>
+  <SectionTitle>Tech with AJ</SectionTitle>
+
+  <Reveal>
+    <div
+      style={{
+        background: "var(--bg-card)",
+        border: "1px solid var(--border)",
+        borderRadius: 7,
+        padding: "22px 24px",
+        marginBottom: 32,
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "flex-start",
+          gap: 20,
+          marginBottom: 18,
+        }}
+      >
+        <div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
+              marginBottom: 8,
+            }}
+          >
+            <span
+              style={{
+                fontFamily: "var(--font-heading)",
+                fontSize: 28,
+                fontWeight: 700,
+                color: "var(--text)",
+              }}
+            >
+              Tech with AJ
+            </span>
+
+            <span
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: 8,
+                letterSpacing: "0.08em",
+                color: "var(--text-3)",
+                border: "1px solid var(--border-2)",
+                borderRadius: 3,
+                padding: "3px 6px",
+              }}
+            >
+              YOUTUBE
+            </span>
           </div>
-        </Reveal>
+
+          <p
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: 10,
+              lineHeight: 1.7,
+              color: "var(--text-3)",
+              margin: 0,
+              maxWidth: 620,
+            }}
+          >
+            A programming and AI/ML education channel focused on understanding
+            the fundamentals behind software — from programming languages and
+            compilers to interpreters, computer systems, and machine learning.
+          </p>
+        </div>
+
+        <a
+          href="https://www.youtube.com/channel/UC1olkSdvMiTVgoO_kWjWiVQ"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: 8,
+            letterSpacing: "0.08em",
+            color: "var(--text-3)",
+            textDecoration: "none",
+            whiteSpace: "nowrap",
+            transition: "color 0.2s",
+          }}
+          onMouseEnter={e =>
+            (e.currentTarget.style.color = "var(--text)")
+          }
+          onMouseLeave={e =>
+            (e.currentTarget.style.color = "var(--text-3)")
+          }
+        >
+          VISIT CHANNEL →
+        </a>
       </div>
+
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 6,
+        }}
+      >
+        {[
+          "Programming Fundamentals",
+          "Python",
+          "C Programming",
+          "Compilers",
+          "Interpreters",
+          "Computer Systems",
+          "AI / ML",
+        ].map(topic => (
+          <span
+            key={topic}
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: 8,
+              letterSpacing: "0.04em",
+              padding: "4px 7px",
+              borderRadius: 3,
+              border: "1px solid var(--border-2)",
+              color: "var(--text-3)",
+            }}
+          >
+            {topic}
+          </span>
+        ))}
+      </div>
+    </div>
+  </Reveal>
+</div>
 
       {/* ── Contact ─────────────────────────────────────────────── */}
       <div className="dev-main-section" style={{ padding: "0 32px" }}>
@@ -788,9 +898,9 @@ export default function DevMain() {
               {[
                 { icon: <Mail size={12} />,         label: "Email",    value: "abinjustinkumaravel@gmail.com",  href: "mailto:abinjustinkumaravel@gmail.com" },
                 { icon: <FaGithub size={12} />,     label: "GitHub",   value: "github.com/abinjustinkumaravel", href: "https://github.com/abinjustinkumaravel" },
-                { icon: <FaLinkedinIn size={12} />, label: "LinkedIn", value: "linkedin.com/in/abin-justin-kumaravel", href: "https://www.linkedin.com/in/abin-justin-kumaravel/" },
+                { icon: <FaLinkedinIn size={12} />, label: "LinkedIn", value: "linkedin.com/in/abinjkumaravel", href: "https://www.linkedin.com/in/abinjkumaravel/" },
                 { icon: <FaTwitter size={12} />,    label: "X",        value: "x.com/Abin_JKV",                href: "https://x.com/Abin_JKV" },
-                { icon: <MapPin size={12} />,       label: "Location", value: "Thiruvananthapuram, Kerala",     href: undefined },
+                { icon: <MapPin size={12} />,       label: "Location", value: "Bengaluru, India",     href: undefined },
               ].map(({ icon, label, value, href }) => (
                 <div key={label} style={{ display: "flex", alignItems: "center", gap: 12 }}>
                   <span style={{ color: "var(--text-3)", display: "flex", alignItems: "center", width: 16 }}>{icon}</span>

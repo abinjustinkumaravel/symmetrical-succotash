@@ -202,7 +202,7 @@ export default function DevSidebar() {
             }}
           >
             <Image
-              src="/images/profile.png"
+              src="/images/profile2.png"
               alt="Abin Justin Kumaravel"
               fill
               priority
